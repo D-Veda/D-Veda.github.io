@@ -15,3 +15,15 @@ html.page-home {
   
   /*background: linear-gradient(to left, #5f2c82, #49a09d);*/
 }
+
+@font-face {
+  font-family: "Courgette-Regular";
+  src: url("/fonts/Courgette-Regular.woff2") format("woff2"),
+       url("/fonts/Courgette-Regular.woff") format("woff"),
+       url("/fonts/Courgette-Regular.ttf") format("truetype"),
+       url("/fonts/Courgette-Regular.eot") format("embedded-opentype"),
+       url("/fonts/Courgette-Regular.svg") format("svg"),
+       url("/fonts/Courgette-Regular.otf") format("opentype");
+  font-style: italic;
+  font-weight: bold;
+}
