@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>#CCNA# OSPF协议 | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CCNA,网络,">
+  
+
+  <meta name="description" content="概要OSPF(Open Shortest Path First)协议又叫开放最短路径优先的链路状态协议OSPF协议是IP网络中最常见的内部网关协议(IGP)OSPF是一种开放标准, 是无类IGP OSPF(Open Shortest Path First)协议OSPF协议是标准的链路状态协议OSPF协议使用带宽作为路径选择标准OSPF协议的管理距离AD 110OSPF协议使用IP协议号89交换数据">
+<meta name="keywords" content="CCNA,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#CCNA# OSPF协议">
+<meta property="og:url" content="https://d-veda.top/2019/01/09/CCNA-OSPF/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="概要OSPF(Open Shortest Path First)协议又叫开放最短路径优先的链路状态协议OSPF协议是IP网络中最常见的内部网关协议(IGP)OSPF是一种开放标准, 是无类IGP OSPF(Open Shortest Path First)协议OSPF协议是标准的链路状态协议OSPF协议使用带宽作为路径选择标准OSPF协议的管理距离AD 110OSPF协议使用IP协议号89交换数据">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://d-veda.top/images/ospf/linju.jpg">
+<meta property="og:image" content="https://d-veda.top/images/ospf/peizhi.png">
+<meta property="og:image" content="https://d-veda.top/images/ospf/spf.jpg">
+<meta property="og:image" content="https://d-veda.top/images/ospf/lsa.png">
+<meta property="og:image" content="https://d-veda.top/images/ospf/sanzhangbiao.jpg">
+<meta property="og:image" content="https://d-veda.top/images/ospf/huanhui.jpg">
+<meta property="og:image" content="https://d-veda.top/images/ospf/shiyan.png">
+<meta property="og:image" content="https://d-veda.top/images/ospf/route.png">
+<meta property="og:updated_time" content="2019-01-12T12:23:09.884Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#CCNA# OSPF协议">
+<meta name="twitter:description" content="概要OSPF(Open Shortest Path First)协议又叫开放最短路径优先的链路状态协议OSPF协议是IP网络中最常见的内部网关协议(IGP)OSPF是一种开放标准, 是无类IGP OSPF(Open Shortest Path First)协议OSPF协议是标准的链路状态协议OSPF协议使用带宽作为路径选择标准OSPF协议的管理距离AD 110OSPF协议使用IP协议号89交换数据">
+<meta name="twitter:image" content="https://d-veda.top/images/ospf/linju.jpg">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概要"><span class="toc-text">概要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OSPF-Open-Shortest-Path-First-协议"><span class="toc-text">OSPF(Open Shortest Path First)协议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OSPF重要组件"><span class="toc-text">OSPF重要组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF邻居发现机制"><span class="toc-text">OSPF邻居发现机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF-RID-Router-ID"><span class="toc-text">OSPF RID(Router-ID)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF的最短路径算法SPF"><span class="toc-text">OSPF的最短路径算法SPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF链路状态通告LSA"><span class="toc-text">OSPF链路状态通告LSA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF协议三张表"><span class="toc-text">OSPF协议三张表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF防环机制"><span class="toc-text">OSPF防环机制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OSPF协议实验"><span class="toc-text">OSPF协议实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF协议配置命令"><span class="toc-text">OSPF协议配置命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF协议相关的show命令"><span class="toc-text">OSPF协议相关的show命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例"><span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CCNA-OSPF" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">#CCNA# OSPF协议</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.01.09</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网络/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>OSPF(Open Shortest Path First)协议又叫开放最短路径优先的链路状态协议<br>OSPF协议是IP网络中最常见的<code>内部网关协议</code>(IGP)<br>OSPF是一种开放标准, 是无类IGP</p>
+<h1 id="OSPF-Open-Shortest-Path-First-协议"><a href="#OSPF-Open-Shortest-Path-First-协议" class="headerlink" title="OSPF(Open Shortest Path First)协议"></a>OSPF(Open Shortest Path First)协议</h1><p>OSPF协议是标准的链路状态协议<br>OSPF协议使用带宽作为路径选择标准<br>OSPF协议的管理距离AD <code>110</code><br>OSPF协议使用IP协议号<code>89</code>交换数据包<br>OSPF协议使用内置机制确保协议报文交换的可靠性<br>OSPF协议使用组播<code>224.0.0.5</code>/<code>224.0.0.6</code>交换协议数据包<br>OSPF协议不需要周期向邻居通告路由信息<br>OSPF协议采用<code>层次化设计结构</code>/<code>区域概念</code></p>
+<h1 id="OSPF重要组件"><a href="#OSPF重要组件" class="headerlink" title="OSPF重要组件"></a>OSPF重要组件</h1><p>OSPF邻居发现机制<br>OSPF最短路由算法SPF<br>OSPF链路状态通告<code>LSA</code>(Link-State Advertisement)<br>OSPF状态机<br>OSPF末节区域<br>OSPF协议的选路原则</p>
+<h2 id="OSPF邻居发现机制"><a href="#OSPF邻居发现机制" class="headerlink" title="OSPF邻居发现机制"></a>OSPF邻居发现机制</h2><p><img src="/images/ospf/linju.jpg" alt="邻居发现机制"><br>OSPF协议通过交换Hello报文来建立, 维护, 终止和区分邻居关系<br>OSPF协议每隔<code>10s</code>发送Hello报文, 若<code>40s</code>后没有收到邻居的Hello报文就取消建立邻居关系<br>OSPF协议通过匹配参数(<code>time</code>, <code>区域ID</code>, <code>Stub</code>, <code>认证</code>)来建立邻居关系<br>对等体交换LSA信息, 存放在LSA数据库<br>对等体在LSA数据中运行是SPF, 将最优路径存放在路由表中</p>
+<h2 id="OSPF-RID-Router-ID"><a href="#OSPF-RID-Router-ID" class="headerlink" title="OSPF RID(Router-ID)"></a>OSPF RID(Router-ID)</h2><p><img src="/images/ospf/peizhi.png" alt="RID"><br>RID: OSPF协议中自制系统内设备的唯一标识</p>
+<p><strong>RID选举规则</strong></p>
+<ol>
+<li>系统自选<ul>
+<li>选择链路接口IP地址最大的</li>
+<li>存在lo优先选择</li>
+</ul>
+</li>
+<li>手动指定</li>
+</ol>
+<h2 id="OSPF的最短路径算法SPF"><a href="#OSPF的最短路径算法SPF" class="headerlink" title="OSPF的最短路径算法SPF"></a>OSPF的最短路径算法SPF</h2><p><img src="/images/ospf/spf.jpg" alt="SPF"></p>
+<h2 id="OSPF链路状态通告LSA"><a href="#OSPF链路状态通告LSA" class="headerlink" title="OSPF链路状态通告LSA"></a>OSPF链路状态通告LSA</h2><p><img src="/images/ospf/lsa.png" alt="LSA"></p>
+<h2 id="OSPF协议三张表"><a href="#OSPF协议三张表" class="headerlink" title="OSPF协议三张表"></a>OSPF协议三张表</h2><p><img src="/images/ospf/sanzhangbiao.jpg" alt="三张表"></p>
+<h2 id="OSPF防环机制"><a href="#OSPF防环机制" class="headerlink" title="OSPF防环机制"></a>OSPF防环机制</h2><p><img src="/images/ospf/huanhui.jpg" alt="OSPF防环机制"><br>OSPF协议通过<code>水平分割</code>, <code>SN号</code>, <code>Age Time</code>来防止网络中形成环路由</p>
+<ul>
+<li><code>水平分割</code>(从一个接口学来的路由信息, 不能在从这个接口发送回去)</li>
+</ul>
+<hr>
+<h1 id="OSPF协议实验"><a href="#OSPF协议实验" class="headerlink" title="OSPF协议实验"></a>OSPF协议实验</h1><p><img src="/images/ospf/shiyan.png" alt="OSPF协议实验"></p>
+<ul>
+<li>要求: R1, R2, R3, R4能够互相ping通</li>
+</ul>
+<h2 id="OSPF协议配置命令"><a href="#OSPF协议配置命令" class="headerlink" title="OSPF协议配置命令"></a>OSPF协议配置命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Router(config)#router ospf process</span><br><span class="line">Router(config-router)#router-id 1.1.1.1</span><br><span class="line">Router(config-router)#network 1.1.1.1 0.0.0.0 area value</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注释<blockquote>
+<p><code>router ospf process</code>(process值通常为110, 数值相同的ospf协议中可以相互建立关系)<br><code>router-id 1.1.1.1</code>(手动指定RID)<br><code>network 1.1.1.1 0.0.0.0 area 0</code>(宣告本地直连接口的网段, 这里用Mask反掩码)</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="OSPF协议相关的show命令"><a href="#OSPF协议相关的show命令" class="headerlink" title="OSPF协议相关的show命令"></a>OSPF协议相关的show命令</h2><p><code>show ip interface brief</code>(查看接口状态及IP信息)<br><code>show running-config</code>(查看所有配置)<br><code>show interfaces fastEthernet 0/0</code>(查看接口<em>fastEthernet 0/0</em>的具体配置)<br><code>show running-config | section ospf</code>(查看OSPF具体配置)<br><code>show ip ospf neighbor</code>(查看OSPF协议邻居关系)<br><code>show ip ospf database</code>(查看OSPF协议数据库)<br><code>show ip protocols</code>(查看协议信息)<br><code>show ip route</code>(查看路由表信息)<br><code>show ip route ospf</code>(查看只包含OSPF路由的路由表信息)</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul>
+<li><p>R1的路由表<br><img src="/images/ospf/route.png" alt="实例"></p>
+</li>
+<li><p>如果R1, R2, R3, R4每个路由器都有所有其他路由信息, 实验就成功了</p>
+</li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>OSPF是一个复杂的协议, 这里只是简单点一下OSPF协议的特性及其相关的配置方法</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

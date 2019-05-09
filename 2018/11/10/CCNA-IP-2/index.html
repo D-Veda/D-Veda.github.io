@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>#CCNA# IP地址(2) | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CCNA,网络,">
+  
+
+  <meta name="description" content="概要之前已经说明了有类IP地址的局限性有类IP地址已经在2010年被完全分配完了虽然网络供应商买下了大量的IP地址, 但是随着网络用户的增加, 目前IPv4地址只有这么多, 分完就没了所以现在出现了一个叫做IPv6地址的东西, 但是目前还没有普及  IPv6长度为128b IPv4长度为32b  由于无类地址IP技术和NAT技术的出现, 而阻碍了IPv6地址的普及(这里不详细讲解)  但是!  就">
+<meta name="keywords" content="CCNA,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#CCNA# IP地址(2)">
+<meta property="og:url" content="https://d-veda.top/2018/11/10/CCNA-IP-2/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="概要之前已经说明了有类IP地址的局限性有类IP地址已经在2010年被完全分配完了虽然网络供应商买下了大量的IP地址, 但是随着网络用户的增加, 目前IPv4地址只有这么多, 分完就没了所以现在出现了一个叫做IPv6地址的东西, 但是目前还没有普及  IPv6长度为128b IPv4长度为32b  由于无类地址IP技术和NAT技术的出现, 而阻碍了IPv6地址的普及(这里不详细讲解)  但是!  就">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://d-veda.top/images/biaoqing/ziya.jpg">
+<meta property="og:updated_time" content="2019-01-07T16:45:18.334Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#CCNA# IP地址(2)">
+<meta name="twitter:description" content="概要之前已经说明了有类IP地址的局限性有类IP地址已经在2010年被完全分配完了虽然网络供应商买下了大量的IP地址, 但是随着网络用户的增加, 目前IPv4地址只有这么多, 分完就没了所以现在出现了一个叫做IPv6地址的东西, 但是目前还没有普及  IPv6长度为128b IPv4长度为32b  由于无类地址IP技术和NAT技术的出现, 而阻碍了IPv6地址的普及(这里不详细讲解)  但是!  就">
+<meta name="twitter:image" content="https://d-veda.top/images/biaoqing/ziya.jpg">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概要"><span class="toc-text">概要</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#子网划分"><span class="toc-text">子网划分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#等价子网划分"><span class="toc-text">等价子网划分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例子"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不等价子网划分"><span class="toc-text">不等价子网划分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例子-1"><span class="toc-text">例子</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CCNA-IP-2" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">#CCNA# IP地址(2)</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.11.10</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网络/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>之前已经说明了有类IP地址的局限性<br>有类IP地址已经在2010年被完全分配完了<br>虽然网络供应商买下了大量的IP地址, 但是随着网络用户的增加, 目前IPv4地址只有这么多, 分完就没了<br>所以现在出现了一个叫做IPv6地址的东西, 但是目前还没有普及</p>
+<ul>
+<li>IPv6长度为128b</li>
+<li><p>IPv4长度为32b</p>
+</li>
+<li><p>由于无类地址IP技术和NAT技术的出现, 而阻碍了IPv6地址的普及(这里不详细讲解)</p>
+</li>
+<li><p>但是!</p>
+<blockquote>
+<p>就像做房地产的, 地皮被瓜分完了就结束了?<br>还有好多小区在建, IP地址怎么可能分完就没了<br>无类IP地址技术就是一个类似把地皮<code>分配优化</code>(减少有类IP地址的分配浪费的情况)的技术</p>
+</blockquote>
+</li>
+</ul>
+<p>#无类IP地址</p>
+<ul>
+<li>无类IP地址不像有类IP地址根据固定的A, B, C, D, E五类地址来区分网络位和主机位</li>
+<li>无类IP地址可以自己定Mask掩码确定网络位和主机位</li>
+</ul>
+<h2 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h2><ul>
+<li>子网划分就是把一个大网段分成许多小网段</li>
+<li><p>子网划分中分的就是主机位</p>
+</li>
+<li><p>子网划分有两种:</p>
+<ul>
+<li>等价子网划分: 每个划分后的子网内的成员数是一样的</li>
+<li>不等价子网划分: 每个划分后的子网内的成员数是不一样的</li>
+</ul>
+</li>
+</ul>
+<h3 id="等价子网划分"><a href="#等价子网划分" class="headerlink" title="等价子网划分"></a>等价子网划分</h3><ul>
+<li>等价子网划分计算公式: $2^n=子网数$ (其中n取值于主机位, 变成网络位)</li>
+</ul>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><blockquote>
+<p>可以先假设一个场景<br>一个公司有4个部门<br>这个公司申请到<code>10.34.1.0/25</code>这个网段<br>部门1: 有17台设备<br>部门2: 有29台设备<br>部门3: 有28台设备<br>部门4: 有31台设备</p>
+</blockquote>
+<p>我们先把10.34.1.0这个网段改写成<code>10.34.1.00000000</code><br>可知这个大网段的地址范围是<code>10.34.1.0</code>——<code>10.34.1.128</code><br>在<code>10.34.1.00000000</code>这个网段中从左往右数前三段和最后一段的第一位是网络位</p>
+<p>根据公式 $2^n=子网数$ , 有4个部门, 所以n=2<br>可以得到如下4种情况:<br><code>10.34.1.00000000</code><br><code>10.34.1.00100000</code><br><code>10.34.1.01000000</code><br><code>10.34.1.01100000</code></p>
+<p>把上面的地址再改写成完全的十进制, 如下4种就是每一段子网的网段<br><code>10.34.1.0/27</code><br><code>10.34.1.32/27</code><br><code>10.34.1.64/27</code><br><code>10.34.1.96/27</code></p>
+<ul>
+<li>由于在大网段中等价子网划分将主机位的前两位变成了网络位, 所以每个子网段的Mask掩码为<code>27</code></li>
+</ul>
+<p>由上面的4段自网段可以得到这四个子网段对应的成员地址的范围和广播地址</p>
+<blockquote>
+<p>部门1: <code>10.34.1.1</code>——<code>10.34.1.30</code>(<code>10.34.1.31</code>)<br>部门2: <code>10.34.1.33</code>——<code>10.34.1.62</code>(<code>10.34.1.63</code>)<br>部门3: <code>10.34.1.65</code>——<code>10.34.1.94</code>(<code>10.34.1.95</code>)<br>部门4: <code>10.34.1.97</code>——<code>10.34.1.126</code>(<code>10.34.1.127</code>)</p>
+</blockquote>
+<p>所以上面的这四个成员地址的范围满足了这4个部门的工作需求</p>
+<h3 id="不等价子网划分"><a href="#不等价子网划分" class="headerlink" title="不等价子网划分"></a>不等价子网划分</h3><ul>
+<li>不等价子网划分计算公式: $2^m-2\ge主机数$ (其中m取值于主机位,还是主机位)</li>
+</ul>
+<h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h4><blockquote>
+<p>再以公司的部门为例<br>如果公司各部门的设备数量相差很大, 等价子网划分可能不满足或造成网络位的浪费<br>这里可以假设一个公司申请到<code>10.34.1.0/24</code>这个网段<br>部门1: 100台<br>部门2: 61台<br>部门3: 13台<br>部门4: 45台</p>
+</blockquote>
+<p>先把<code>10.34.1.0</code>改写成<code>10.34.1.00000000</code></p>
+<p>根据公式 $2^m-2\ge主机数$ 分别求出每个部门对应的最小m值, 所求得的就是每个部门对应子网的主机位<br>部门1: 7<br>部门2: 6<br>部门3: 4<br>部门4: 6</p>
+<p>根据求得的各个部门对应的主机位的数值, 可以列出每个部门的子网段的分布情况<br>先将各部门子网的主机位按从大到小的顺序排列, 可以方便挑选各个部门对应的子网</p>
+<p>部门1:</p>
+<blockquote>
+<p><code>10.34.1.00000000</code>(<code>10.34.1.0</code>)<br>10.34.1.10000000(10.34.1.128)</p>
+</blockquote>
+<p>部门2:</p>
+<blockquote>
+<p>10.34.1.00000000(10.34.1.0)<br>10.34.1.01000000(10.34.1.64)<br><code>10.34.1.10000000</code>(<code>10.34.1.128</code>)<br>10.34.1.11000000(10.34.1.192)</p>
+</blockquote>
+<p>部门4:</p>
+<blockquote>
+<p>10.34.1.00000000(10.34.1.0)<br>10.34.1.01000000(10.34.1.64)<br>10.34.1.10000000(10.34.1.128)<br><code>10.34.1.11000000</code>(<code>10.34.1.192</code>)</p>
+</blockquote>
+<p>部门3:</p>
+<blockquote>
+<p>10.34.1.00000000(10.34.1.0)<br>10.34.1.00010000(10.34.1.16)<br>10.34.1.00100000(10.34.1.32)<br>10.34.1.00110000(10.34.1.48)<br>10.34.1.01000000(10.34.1.64)<br>10.34.1.01010000(10.34.1.80)<br>10.34.1.01100000(10.34.1.96)<br>10.34.1.01110000(10.34.1.112)<br>10.34.1.10000000(10.34.1.128)<br>10.34.1.10010000(10.34.1.144)<br>10.34.1.10100000(10.34.1.160)<br>10.34.1.10110000(10.34.1.176)<br>10.34.1.11000000(10.34.1.192)<br>10.34.1.11010000(10.34.1.208)<br>10.34.1.11100000(10.34.1.224)<br><code>10.34.1.11110000</code>(<code>10.34.1.240</code>)</p>
+</blockquote>
+<p>以上橙色的网段就是挑选出来的, 通常如果有多出来的网段, 优先选择最小的那个网段, 方便以后使用<br>所以根据挑选出来的网段可以得到各个部门的成员地址范围和广播地址</p>
+<blockquote>
+<p>部门1: <code>10.34.1.1</code>——<code>10.34.1.126</code>(<code>10.34.1.127</code>)<br>部门2: <code>10.34.1.128</code>——<code>10.34.1.190</code>(<code>10.34.1.191</code>)<br>部门3: <code>10.34.1.240</code>——<code>10.34.1.254</code>(<code>10.34.1.255</code>)<br>部门4: <code>10.34.1.192</code>——<code>10.34.1.238</code>(<code>10.34.1.239</code>)</p>
+</blockquote>
+<p>所以上面的4个子网段满足了这4个部门的工作需求</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>子网划分比较麻烦, 熟悉过程就好了, 这里只是讲解关于IP如何分配和计算的, 具体的内容以后再更<img src="/images/biaoqing/ziya.jpg" alt="表情"></li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

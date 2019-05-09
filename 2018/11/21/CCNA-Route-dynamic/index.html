@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>#CCNA# 动态路由协议 | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CCNA,网络,">
+  
+
+  <meta name="description" content="概要动态路由适用范围更广, 与静态路由不同的是动态路由是通过动态学习的方式来帮助路由器形成路由表 动态路由特点 动态路由协议能够让3层设备自动学习远端网段 动态路由让设备能够自动适应拓扑变化, 无需管理员干预 减少管理员的管理任务 消耗设备资源, 带宽资源  动态路由的工作原理通过对等体进行交换路由信息(路由表), 从而实现对未知网段的自动生成 动态路由选路依据度量值(metric): 相同路由协">
+<meta name="keywords" content="CCNA,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#CCNA# 动态路由协议">
+<meta property="og:url" content="https://d-veda.top/2018/11/21/CCNA-Route-dynamic/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="概要动态路由适用范围更广, 与静态路由不同的是动态路由是通过动态学习的方式来帮助路由器形成路由表 动态路由特点 动态路由协议能够让3层设备自动学习远端网段 动态路由让设备能够自动适应拓扑变化, 无需管理员干预 减少管理员的管理任务 消耗设备资源, 带宽资源  动态路由的工作原理通过对等体进行交换路由信息(路由表), 从而实现对未知网段的自动生成 动态路由选路依据度量值(metric): 相同路由协">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://d-veda.top/images/dongtailuyou/dongtaizhuanfa.png">
+<meta property="og:image" content="https://d-veda.top/images/dongtailuyou/shiliangxieyi.png">
+<meta property="og:image" content="https://d-veda.top/images/dongtailuyou/lianluxieyi.png">
+<meta property="og:updated_time" content="2018-12-11T06:52:57.040Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#CCNA# 动态路由协议">
+<meta name="twitter:description" content="概要动态路由适用范围更广, 与静态路由不同的是动态路由是通过动态学习的方式来帮助路由器形成路由表 动态路由特点 动态路由协议能够让3层设备自动学习远端网段 动态路由让设备能够自动适应拓扑变化, 无需管理员干预 减少管理员的管理任务 消耗设备资源, 带宽资源  动态路由的工作原理通过对等体进行交换路由信息(路由表), 从而实现对未知网段的自动生成 动态路由选路依据度量值(metric): 相同路由协">
+<meta name="twitter:image" content="https://d-veda.top/images/dongtailuyou/dongtaizhuanfa.png">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概要"><span class="toc-text">概要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态路由特点"><span class="toc-text">动态路由特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态路由的工作原理"><span class="toc-text">动态路由的工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态路由选路依据"><span class="toc-text">动态路由选路依据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#度量值类型"><span class="toc-text">度量值类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同协议的管理距离"><span class="toc-text">不同协议的管理距离</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态路由协议种类"><span class="toc-text">动态路由协议种类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CCNA-Route-dynamic" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">#CCNA# 动态路由协议</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.11.21</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网络/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>动态路由适用范围更广, 与静态路由不同的是动态路由是通过动态学习的方式来帮助路由器形成路由表</p>
+<h1 id="动态路由特点"><a href="#动态路由特点" class="headerlink" title="动态路由特点"></a>动态路由特点</h1><ul>
+<li>动态路由协议能够让3层设备自动学习远端网段</li>
+<li>动态路由让设备能够自动适应拓扑变化, 无需管理员干预</li>
+<li>减少管理员的管理任务</li>
+<li>消耗设备资源, 带宽资源</li>
+</ul>
+<h1 id="动态路由的工作原理"><a href="#动态路由的工作原理" class="headerlink" title="动态路由的工作原理"></a>动态路由的工作原理</h1><p><img src="/images/dongtailuyou/dongtaizhuanfa.png" alt="动态转发"><br>通过对等体进行交换路由<code>信息</code>(路由表), 从而实现对未知网段的自动生成</p>
+<h1 id="动态路由选路依据"><a href="#动态路由选路依据" class="headerlink" title="动态路由选路依据"></a>动态路由选路依据</h1><p>度量值(metric): 相同路由协议下的多条路径抉择<br>管理距离(AD): 不同路由协议下的多条路径抉择</p>
+<h2 id="度量值类型"><a href="#度量值类型" class="headerlink" title="度量值类型"></a>度量值类型</h2><p>跳数: 数据包到达目标之前所经过的所有网段<br>带宽: 链路的容量<br>延迟: 数据包到达目标所消耗的时间<br>负载: 链路的使用率<br>可靠性: 链路的错误率<br>MTU: 设备接口最大传输单元</p>
+<h2 id="不同协议的管理距离"><a href="#不同协议的管理距离" class="headerlink" title="不同协议的管理距离"></a>不同协议的管理距离</h2><ul>
+<li>每个协议都会有一个默认管理距离/参数可以修改</li>
+</ul>
+<p>RIP协议管理距离: 120<br>EIGRP协议管理距离: 90 180<br>OSPF协议管理距离: 110<br>ISIS协议管理距离: 115<br>BGP协议管理距离: 20 200<br>静态路由管理距离: 0/1</p>
+<h1 id="动态路由协议种类"><a href="#动态路由协议种类" class="headerlink" title="动态路由协议种类"></a>动态路由协议种类</h1><ul>
+<li><p>距离矢量协议<br>对于未知网段的认识是模糊的(知道网段, 但是不知道怎么来的)<br>邻居间交换具体的路由信息<br>对于设备的要求比较低<br><img src="/images/dongtailuyou/shiliangxieyi.png" alt="距离矢量协议"><br>例如: <code>RIP</code>, <code>EIGRP</code>, <code>BGP</code></p>
+</li>
+<li><p>链路状态协议<br>对于未知网段的认识是清晰的(知道网段的结构, 但不知道网段)<br>邻居间交换lsa<br>对于设备的要求很高<br><img src="/images/dongtailuyou/lianluxieyi.png" alt="链路状态协议"><br>例如: <code>OSPF</code>, <code>ISIS</code></p>
+</li>
+<li><p>有类的动态路由协议: <code>RIPv1</code></p>
+</li>
+<li>无类的动态路由协议: <code>OSPF</code>, <code>EIGRP</code>, <code>ISIS</code>, <code>RIPv2</code>, <code>BGP</code></li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>简单的总结一下动态路由协议, 后面更详细的讲各协议的工作原理和配置方法</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

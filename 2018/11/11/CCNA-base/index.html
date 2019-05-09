@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>#CCNA# 路由基础 | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CCNA,网络,">
+  
+
+  <meta name="description" content="路由基础 1个网段就是1条路由 整个路由部分就是围绕如何帮助路由器收集所有路由条目 路由器必须拥有网络内的所有路由条目, 才能转发各网段数据包  路由 作用: 数据从源设备成功到达目标设备的路径总和  路由类型 本地路由: 路由器直连网段 外地路由: 非路由器直连网段  获悉外地路由方式有两种  静态路由: 管理员手动配置未知网段动态路由: 路由器自动学习未知网段  路由表 作用: 装载路由的表项">
+<meta name="keywords" content="CCNA,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#CCNA# 路由基础">
+<meta property="og:url" content="https://d-veda.top/2018/11/11/CCNA-base/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="路由基础 1个网段就是1条路由 整个路由部分就是围绕如何帮助路由器收集所有路由条目 路由器必须拥有网络内的所有路由条目, 才能转发各网段数据包  路由 作用: 数据从源设备成功到达目标设备的路径总和  路由类型 本地路由: 路由器直连网段 外地路由: 非路由器直连网段  获悉外地路由方式有两种  静态路由: 管理员手动配置未知网段动态路由: 路由器自动学习未知网段  路由表 作用: 装载路由的表项">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/luyoubiao.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/luyouyingjian.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/luyouqidong.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/luyoukaiqi.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/ciscokaiqi.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/ciscojiemian.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/sk1.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/sk2.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/sk3.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/cli.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/chushihua.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/cli1.png">
+<meta property="og:image" content="https://d-veda.top/images/luyoujichu/luyouqixinxi.png">
+<meta property="og:image" content="https://d-veda.top/images/biaoqing/chengqiang.jpg">
+<meta property="og:updated_time" content="2019-01-23T08:10:34.504Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#CCNA# 路由基础">
+<meta name="twitter:description" content="路由基础 1个网段就是1条路由 整个路由部分就是围绕如何帮助路由器收集所有路由条目 路由器必须拥有网络内的所有路由条目, 才能转发各网段数据包  路由 作用: 数据从源设备成功到达目标设备的路径总和  路由类型 本地路由: 路由器直连网段 外地路由: 非路由器直连网段  获悉外地路由方式有两种  静态路由: 管理员手动配置未知网段动态路由: 路由器自动学习未知网段  路由表 作用: 装载路由的表项">
+<meta name="twitter:image" content="https://d-veda.top/images/luyoujichu/luyoubiao.png">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#路由基础"><span class="toc-text">路由基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#路由"><span class="toc-text">路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#路由类型"><span class="toc-text">路由类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由表"><span class="toc-text">路由表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#路由表实例"><span class="toc-text">路由表实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由表中路由条目类型"><span class="toc-text">路由表中路由条目类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由器"><span class="toc-text">路由器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#路由器工作原理"><span class="toc-text">路由器工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由器硬件组成"><span class="toc-text">路由器硬件组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由器启动过程"><span class="toc-text">路由器启动过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由器启动输出内容"><span class="toc-text">路由器启动输出内容</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验基础"><span class="toc-text">实验基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cisco路由器CLI配置命令"><span class="toc-text">Cisco路由器CLI配置命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CLI配置模式"><span class="toc-text">CLI配置模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看路由器系统信息"><span class="toc-text">查看路由器系统信息</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CCNA-base" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">#CCNA# 路由基础</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.11.11</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网络/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="路由基础"><a href="#路由基础" class="headerlink" title="路由基础"></a>路由基础</h1><ul>
+<li>1个网段就是1条路由</li>
+<li>整个路由部分就是围绕如何帮助路由器收集所有路由条目</li>
+<li>路由器必须拥有网络内的所有路由条目, 才能转发各网段数据包</li>
+</ul>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ul>
+<li>作用: 数据从源设备成功到达目标设备的路径总和</li>
+</ul>
+<h3 id="路由类型"><a href="#路由类型" class="headerlink" title="路由类型"></a>路由类型</h3><ul>
+<li>本地路由: 路由器直连网段</li>
+<li>外地路由: 非路由器直连网段</li>
+</ul>
+<p>获悉外地路由方式有两种</p>
+<blockquote>
+<p>静态路由: 管理员手动配置未知网段<br>动态路由: 路由器自动学习未知网段</p>
+</blockquote>
+<h2 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h2><ul>
+<li>作用: 装载路由的表项</li>
+</ul>
+<h3 id="路由表实例"><a href="#路由表实例" class="headerlink" title="路由表实例"></a>路由表实例</h3><p><img src="/images/luyoujichu/luyoubiao.png" alt="路由表实例"></p>
+<h3 id="路由表中路由条目类型"><a href="#路由表中路由条目类型" class="headerlink" title="路由表中路由条目类型"></a>路由表中路由条目类型</h3><ul>
+<li>直连路由: 本地直连接口–C</li>
+<li>静态路由: 通过手动配置的非本地网段–S</li>
+<li>RIP路由: 通过动态RIP学习到的非本地网段–R</li>
+<li>EIGRP路由: 通过动态EIGRP学习到的非本地网段–D</li>
+<li>BGP路由: 通过动态BGP学习到的非本地网段–B</li>
+<li>OSPF路由: 通过动态OSPF学习到的非本地网段–O</li>
+<li>ISIS路由: 通过动态ISIS学习到的非本地网段–I</li>
+</ul>
+<h2 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h2><ul>
+<li>作用: 负责学习路由, 生成路由表, 依据路由表转发数据包</li>
+<li>路由工作在网络层</li>
+</ul>
+<h3 id="路由器工作原理"><a href="#路由器工作原理" class="headerlink" title="路由器工作原理"></a>路由器工作原理</h3><ul>
+<li>根据路由表转发数据</li>
+<li>对已知数据包 -&gt; 转发</li>
+<li>对未知数据包 -&gt; 丢弃</li>
+</ul>
+<h3 id="路由器硬件组成"><a href="#路由器硬件组成" class="headerlink" title="路由器硬件组成"></a>路由器硬件组成</h3><p><img src="/images/luyoujichu/luyouyingjian.png" alt="路由器硬件组成"></p>
+<h3 id="路由器启动过程"><a href="#路由器启动过程" class="headerlink" title="路由器启动过程"></a>路由器启动过程</h3><ul>
+<li>(1)开机自检(power-on self, POST)</li>
+<li>(2)如果(1)正常, IOS存在, 将从闪存FLASH中查找和加载IOS到随机存储器RAM中(但2500系列不加载RAM中, 直接从闪存中运行)</li>
+<li>(3)如果(1)和(2)正常, 接下来它将在非易失存储器NVRAM中查找启动配置文件startup-config, 假如没有找到任何启动配置文件, router将进入到SETUP模式</li>
+<li>(4)如果在非易失存储器NVRAM中查找到启动配置文件startup-config, 将按照启动配置文件startup-config启动路由器</li>
+</ul>
+<h3 id="路由器启动输出内容"><a href="#路由器启动输出内容" class="headerlink" title="路由器启动输出内容"></a>路由器启动输出内容</h3><p><img src="/images/luyoujichu/luyouqidong.png" alt="路由器启动输出内容"></p>
+<ul>
+<li>实例<br><img src="/images/luyoujichu/luyoukaiqi.png" alt="Cisco Packet Tracer"></li>
+</ul>
+<hr>
+<h1 id="实验基础"><a href="#实验基础" class="headerlink" title="实验基础"></a>实验基础</h1><p>从这里开始使用Cisco的<a href="https://www.netacad.com/zh-hans/courses/packet-tracer" target="_blank" rel="noopener">Cisco Packet Tracer</a>来模拟真实的网络环境</p>
+<ul>
+<li><p>开启界面<br><img src="/images/luyoujichu/ciscokaiqi.png" alt="Cisco Packet Tracer"><br><img src="/images/luyoujichu/ciscojiemian.png" alt="Cisco Packet Tracer"></p>
+</li>
+<li><p>相关界面<br><img src="/images/luyoujichu/sk1.png" alt="Cisco Packet Tracer"><br><img src="/images/luyoujichu/sk2.png" alt="Cisco Packet Tracer"><br><img src="/images/luyoujichu/sk3.png" alt="Cisco Packet Tracer"><br><img src="/images/luyoujichu/cli.png" alt="Cisco Packet Tracer"></p>
+</li>
+<li><p>管理设备的方式</p>
+<ul>
+<li>命令行模式: CLI</li>
+<li>图形化模式: GUI</li>
+</ul>
+</li>
+<li><p>路由器, 交换机等一些设备刚开启时需要输入<br><img src="/images/luyoujichu/chushihua.png" alt="Cisco Packet Tracer"></p>
+</li>
+</ul>
+<h2 id="Cisco路由器CLI配置命令"><a href="#Cisco路由器CLI配置命令" class="headerlink" title="Cisco路由器CLI配置命令"></a>Cisco路由器CLI配置命令</h2><blockquote>
+<p>Router&gt; //用户模式<br>Router# //特权模式: 检查设备的运行状态<br>Router(config)# //全局配置模式: 可以配置命令<br>Router(config-if)# //接口配置模式<br>Router(config-router)# //路由配置模式<br>Router(config-line)# //线路配置模式</p>
+</blockquote>
+<h3 id="CLI配置模式"><a href="#CLI配置模式" class="headerlink" title="CLI配置模式"></a>CLI配置模式</h3><ul>
+<li><p>从上到下输入命令进入不同的模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router&gt;</span><br><span class="line">Router&gt;enable</span><br><span class="line">Router#</span><br><span class="line">Router#conf t</span><br><span class="line">Router(config)#</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>exit 是回退上一级</p>
+</li>
+<li><p>end 回到特权模式</p>
+</li>
+<li><p>cisco的命令的特点</p>
+<blockquote>
+<ol>
+<li>cisco的命令可以简写</li>
+<li>cisco的命令可以补全(按<code>Tab</code>键)</li>
+<li>cisco的命令可以查询</li>
+</ol>
+</blockquote>
+</li>
+<li><p>实例<br><img src="/images/luyoujichu/cli1.png" alt="Cisco Packet Tracer"></p>
+</li>
+</ul>
+<h2 id="查看路由器系统信息"><a href="#查看路由器系统信息" class="headerlink" title="查看路由器系统信息"></a>查看路由器系统信息</h2><p><img src="/images/luyoujichu/luyouqixinxi.png" alt="路由器系统信息"></p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>今日份的双11, 手么剁不动, 代码么敲得起劲___(:з)∠)__<img src="/images/biaoqing/chengqiang.jpg" alt="表情"></li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

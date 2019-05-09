@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>#CCNA# 静态路由协议 | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CCNA,网络,">
+  
+
+  <meta name="description" content="概要路由器是根据路由表来转发数据包的对于网段的获取有两种方式:  静态配置 动态学习  静态路由就是通过静态配置来帮助路由器形成路由表 静态路由静态路由适用在小型网络中(路由器不超过10台)  静态路由的优势  管理员可以完全控制网络中的数据走向很小的设备开销, 链路开销稳定家庭网络, 企业网络的出口路由   静态路由的劣势  配置量太大, 增加管理员负担易错, 修改量大不适用在大型网络中对于网络">
+<meta name="keywords" content="CCNA,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#CCNA# 静态路由协议">
+<meta property="og:url" content="https://d-veda.top/2018/11/18/CCNA-Route-static/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="概要路由器是根据路由表来转发数据包的对于网段的获取有两种方式:  静态配置 动态学习  静态路由就是通过静态配置来帮助路由器形成路由表 静态路由静态路由适用在小型网络中(路由器不超过10台)  静态路由的优势  管理员可以完全控制网络中的数据走向很小的设备开销, 链路开销稳定家庭网络, 企业网络的出口路由   静态路由的劣势  配置量太大, 增加管理员负担易错, 修改量大不适用在大型网络中对于网络">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://d-veda.top/images/jingtailuyou/jingtailuyoupeizhi.png">
+<meta property="og:image" content="https://d-veda.top/images/jingtailuyou/jingtaimoren.png">
+<meta property="og:image" content="https://d-veda.top/images/jingtailuyou/jingtailuyoushiyan.png">
+<meta property="og:image" content="https://d-veda.top/images/jingtailuyou/PC0.png">
+<meta property="og:image" content="https://d-veda.top/images/jingtailuyou/R1.png">
+<meta property="og:image" content="https://d-veda.top/images/jingtailuyou/R2.png">
+<meta property="og:image" content="https://d-veda.top/images/jingtailuyou/R3.png">
+<meta property="og:image" content="https://d-veda.top/images/jingtailuyou/R4.png">
+<meta property="og:image" content="https://d-veda.top/images/jingtailuyou/ping.png">
+<meta property="og:updated_time" content="2018-12-11T06:53:05.501Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#CCNA# 静态路由协议">
+<meta name="twitter:description" content="概要路由器是根据路由表来转发数据包的对于网段的获取有两种方式:  静态配置 动态学习  静态路由就是通过静态配置来帮助路由器形成路由表 静态路由静态路由适用在小型网络中(路由器不超过10台)  静态路由的优势  管理员可以完全控制网络中的数据走向很小的设备开销, 链路开销稳定家庭网络, 企业网络的出口路由   静态路由的劣势  配置量太大, 增加管理员负担易错, 修改量大不适用在大型网络中对于网络">
+<meta name="twitter:image" content="https://d-veda.top/images/jingtailuyou/jingtailuyoupeizhi.png">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概要"><span class="toc-text">概要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#静态路由"><span class="toc-text">静态路由</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态协议分类和相关配置"><span class="toc-text">静态协议分类和相关配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态协议的特点及相关适用环境"><span class="toc-text">静态协议的特点及相关适用环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#静态协议实验"><span class="toc-text">静态协议实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态路由配置"><span class="toc-text">静态路由配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认路由配置"><span class="toc-text">默认路由配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ"><span class="toc-text">FAQ</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CCNA-Route-static" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">#CCNA# 静态路由协议</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.11.18</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网络/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>路由器是根据路由表来转发数据包的<br>对于网段的获取有两种方式:</p>
+<ul>
+<li>静态配置</li>
+<li>动态学习</li>
+</ul>
+<p>静态路由就是通过静态配置来帮助路由器形成路由表</p>
+<h1 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h1><p>静态路由适用在小型网络中(路由器不超过10台)</p>
+<ul>
+<li><p>静态路由的优势</p>
+<blockquote>
+<p>管理员可以完全控制网络中的数据走向<br>很小的设备开销, 链路开销<br>稳定<br>家庭网络, 企业网络的出口路由</p>
+</blockquote>
+</li>
+<li><p>静态路由的劣势</p>
+<blockquote>
+<p>配置量太大, 增加管理员负担<br>易错, 修改量大<br>不适用在大型网络中<br>对于网络拓扑变更的恢复能力为零</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="静态协议分类和相关配置"><a href="#静态协议分类和相关配置" class="headerlink" title="静态协议分类和相关配置"></a>静态协议分类和相关配置</h2><ul>
+<li><p>静态协议分两种</p>
+<blockquote>
+<ul>
+<li>静态路由</li>
+<li>默认路由</li>
+</ul>
+</blockquote>
+</li>
+<li><p>静态路由配置<br><img src="/images/jingtailuyou/jingtailuyoupeizhi.png" alt="静态路由配置"></p>
+</li>
+<li><p>默认路由配置<br><img src="/images/jingtailuyou/jingtaimoren.png" alt="默认路由配置"></p>
+</li>
+</ul>
+<h2 id="静态协议的特点及相关适用环境"><a href="#静态协议的特点及相关适用环境" class="headerlink" title="静态协议的特点及相关适用环境"></a>静态协议的特点及相关适用环境</h2><ul>
+<li><p>静态路由</p>
+<ul>
+<li>特点<blockquote>
+<p>未知网段需要手动配置<br>只有管理员才能干预网络</p>
+</blockquote>
+</li>
+<li>使用环境<blockquote>
+<p>一般用于网络规模小<br>拓补图固定的网络结构中</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>默认路由</p>
+<ul>
+<li>特点<blockquote>
+<p>在所有路由类型中默认路由的优先级最低</p>
+</blockquote>
+</li>
+<li>适用环境<blockquote>
+<p>一般用于只有一个出口的末端网络中(网关, 家庭, 企业出口等)<br>作为补充路由, 起到扩展作用</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="静态协议实验"><a href="#静态协议实验" class="headerlink" title="静态协议实验"></a>静态协议实验</h1><h2 id="静态路由配置"><a href="#静态路由配置" class="headerlink" title="静态路由配置"></a>静态路由配置</h2><ul>
+<li>要求如下图所示配置, 使得左边的计算机能Ping通右边的计算机<br><img src="/images/jingtailuyou/jingtailuyoushiyan.png" alt="静态路由实验"></li>
+</ul>
+<blockquote>
+<p>  1.<code>先将计算机的IP地址, Mask掩码, 网关和各路由器端口的IP地址配置好</code></p>
+</blockquote>
+<p>PC0的相关配置如下图所示<br><img src="/images/jingtailuyou/PC0.png" alt="PC0"></p>
+<p>然后打开路由器CLI配置界面, 对各路由器进行配置<br>这里以路由器<code>R1</code>的端口<code>Fa0/0</code>的配置为例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Router&gt;</span><br><span class="line">Router&gt;en</span><br><span class="line">Router#</span><br><span class="line">Router#conf t</span><br><span class="line">Router(config)#</span><br><span class="line">Router(config)# int f0/0</span><br><span class="line">Router(config-if)#ip add 14.0.0.1 255.255.255.0</span><br><span class="line">Router(config-if)#no sh</span><br></pre></td></tr></table></figure></p>
+<p>其中<code>f0/0</code>是设备的接口<br>在进入端口的配置模式中输入<code>ip add (设备端口的IP地址) (Mask掩码)</code>给设备(此时是路由器)的端口添加IP地址<br><code>no sh</code>是激活端口, 每次设置好一个端口必须输入该命令来激活端口<br>像这样给每个设备(路由器和电脑)都配置好</p>
+<ul>
+<li>注意: 在路由器与路由器的直连时, 必须保持端口IP地址的网络位相同, Mask掩码一致, 主机位不同</li>
+</ul>
+<blockquote>
+<p>  2.<code>再对各路由器写静态路由</code></p>
+</blockquote>
+<p>这里要用到<code>ip route (目标网段) (目标网段的Mask掩码) (下一跳)</code>这个命令<br>该命令必须在全局模式下使用<br><code>目标网段</code>即是数据包要发送到的网段<br><code>下一跳</code>英文是<code>Next hop</code>即, 当数据包要发送到目标网段的时候, 第一次要经过的地方的IP地址</p>
+<ul>
+<li>例如上图所示的网络拓补图中<blockquote>
+<p>假设数据包要从路由器<code>R1</code>经过路由器<code>R2</code>到达路由器<code>R3</code><br>那么数据包会从<code>R1</code>的<code>Fa0/1</code>端口中被发送出从<code>R2</code>的<code>Fa0/0</code>端口到达<code>R2</code><br>同理, 数据包会从<code>R2</code>的<code>Fa0/1</code>端口中被发送出从<code>R3</code>的<code>Fa0/1</code>端口到达<code>R3</code><br>这个过程中, 数据包本来就处于<code>R1</code>和<code>R2</code>之间的<code>12.0.0.0</code>这个网段中<br>而<code>R2</code>和<code>R3</code>之间的<code>23.0.0.0</code>这个网段就是数据包要去的网段, 即<code>目标网段</code><br>数据包必须从<code>R2</code>的<code>Fa0/0</code>端口才能到达<code>R2</code>, 而被发送到<code>目标网段</code><br>所以这里的<code>下一跳(Next hop)</code>就是<code>R2</code>端口<code>Fa0/0</code>的IP地址<code>12.0.0.2</code></p>
+</blockquote>
+</li>
+</ul>
+<p>这样配置好所有的路由器后<br>可以在全局模式下使用<code>sh ip ro</code>即<code>show ip route</code>命令来检查路由器的路由表是否齐全</p>
+<p>这里附上四个路由器的路由表<br><img src="/images/jingtailuyou/R1.png" alt="R1"><br><img src="/images/jingtailuyou/R2.png" alt="R2"><br><img src="/images/jingtailuyou/R3.png" alt="R3"><br><img src="/images/jingtailuyou/R4.png" alt="R4"></p>
+<blockquote>
+<p>  3.<code>最后ping一下, 检查是否连通</code></p>
+</blockquote>
+<p><img src="/images/jingtailuyou/ping.png" alt="Ping"><br>像这样就是Ping通了</p>
+<h2 id="默认路由配置"><a href="#默认路由配置" class="headerlink" title="默认路由配置"></a>默认路由配置</h2><ul>
+<li>默认路由的配置方法与静态路由的配置方法相似</li>
+<li>默认路由配置在末节网络中</li>
+<li>只需把<code>ip route (目标网段) (目标网段的Mask掩码) (下一跳)</code>改为<code>ip route 0.0.0.0 0.0.0.0 (下一跳)</code>即可</li>
+</ul>
+<p>其中的<code>0.0.0.0</code> <code>0.0.0.0</code>:匹配所有网段</p>
+<p>默认路由的方向指向外部<br>原因: 已经有内部的路由了</p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ol>
+<li><p>若四条Ping数据包中有1到2条提示<code>Request time out</code>或<code>请求超时</code><br>则是ARP地址解析所致或是路由表没有写完整导致没有负载均衡<br>再Ping一下就能解决ARP地址解析所致的超时问题</p>
+</li>
+<li><p>如果四条都是<code>Request time out</code>或<code>请求超时</code><br>那么需要逐一检查计算机和路由器的未配置或者配置错误的问题所在</p>
+</li>
+<li><p>如果设备(如: 路由器)接口不够<br>需要添加扩展插件<br>单击设备, 在弹出的窗口中单击<code>Physcial</code>选项卡<br>先将设备关机, 在将左侧的扩展插件拖到右边的设备中, 再开机</p>
+</li>
+</ol>
+<ul>
+<li><p>注意</p>
+<blockquote>
+<p>设备若不保存配置, 关机后再开机, 配置会被清空, 若不想重新配置必须先保存配置再关机<br>在设备的CLI界面中, 进入全局模式, 输入<code>wr</code>即可保存配置</p>
+</blockquote>
+</li>
+<li><p>若在CLI配置中出现输入命令无反应的现象, 按<code>Ctrl+Shift+6</code>即可</p>
+</li>
+<li>若在Ping的过程中输出反应慢(接近超时), 按<code>Ctrl+C</code>立即结束Ping</li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>静态路由配置起来超级麻烦</li>
+<li>作为懒人, 我是不愿意手动输入这么多重复的数据的, 而且在输入协议的时候, 已经体现出了静态路由繁琐易错的不足了, 这里学习了解一下, 熟悉过成就好</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

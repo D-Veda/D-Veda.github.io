@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>关于Hexo添加Mathjax相关问题及解决方法 | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Hexo,Blog,">
+  
+
+  <meta name="description" content="根据Mathjax的配置方法, 步骤有点繁琐所以自己结合了几篇文章, 解决了部署后网页无法正常显示Mathjax数学公式的问题 Hexo安装Mathjax要求 Hexo博客 支持Mathjax的Markdown渲染器: hexo-renderer-kramed 支持Mathjax的Theme(例如: Next, 具体是否支持看主题文件的README.md中是否有写支持, 也可自己添加尝试)  安装">
+<meta name="keywords" content="Hexo,Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Hexo添加Mathjax相关问题及解决方法">
+<meta property="og:url" content="https://d-veda.top/2018/11/11/Hexo-with-Mathjax/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="根据Mathjax的配置方法, 步骤有点繁琐所以自己结合了几篇文章, 解决了部署后网页无法正常显示Mathjax数学公式的问题 Hexo安装Mathjax要求 Hexo博客 支持Mathjax的Markdown渲染器: hexo-renderer-kramed 支持Mathjax的Theme(例如: Next, 具体是否支持看主题文件的README.md中是否有写支持, 也可自己添加尝试)  安装">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-12T04:20:08.276Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于Hexo添加Mathjax相关问题及解决方法">
+<meta name="twitter:description" content="根据Mathjax的配置方法, 步骤有点繁琐所以自己结合了几篇文章, 解决了部署后网页无法正常显示Mathjax数学公式的问题 Hexo安装Mathjax要求 Hexo博客 支持Mathjax的Markdown渲染器: hexo-renderer-kramed 支持Mathjax的Theme(例如: Next, 具体是否支持看主题文件的README.md中是否有写支持, 也可自己添加尝试)  安装">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo安装Mathjax要求"><span class="toc-text">Hexo安装Mathjax要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装支持Mathjax的渲染器"><span class="toc-text">安装支持Mathjax的渲染器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo-renderer-mathjax插件包"><span class="toc-text">安装hexo-renderer-mathjax插件包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置Blog主题的-config-yml文件"><span class="toc-text">配置Blog主题的_config.yml文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置Blog本地根目录下的-config-yml文件"><span class="toc-text">配置Blog本地根目录下的_config.yml文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#给文章开启Mathjax渲染"><span class="toc-text">给文章开启Mathjax渲染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Hexo-with-Mathjax" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">关于Hexo添加Mathjax相关问题及解决方法</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.11.11</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网页/">网页</a> / <a class="article-category-link" href="/categories/计算机/网页/解决方案/">解决方案</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>根据<a href="https://docs.mathjax.org/en/latest/installation.html" target="_blank" rel="noopener">Mathjax</a>的配置方法, 步骤有点繁琐<br>所以自己结合了几篇文章, 解决了部署后网页无法正常显示Mathjax数学公式的问题</p>
+<h1 id="Hexo安装Mathjax要求"><a href="#Hexo安装Mathjax要求" class="headerlink" title="Hexo安装Mathjax要求"></a>Hexo安装Mathjax要求</h1><ul>
+<li>Hexo博客</li>
+<li>支持Mathjax的Markdown渲染器: hexo-renderer-kramed</li>
+<li>支持Mathjax的Theme(例如: Next, 具体是否支持看主题文件的README.md中是否有写支持, 也可自己添加尝试)</li>
+</ul>
+<h1 id="安装支持Mathjax的渲染器"><a href="#安装支持Mathjax的渲染器" class="headerlink" title="安装支持Mathjax的渲染器"></a>安装支持Mathjax的渲染器</h1><p>若根据<a href="https://github.com/phoenixcw/hexo-renderer-mathjax" target="_blank" rel="noopener">hexo-renderer-mathjax</a>的提示配置<br>网页上的数学公式能在本地正常显示, 而部署后则不能正常显示<br>这是由于Hexo默认的渲染器是Marked, 而Marked不支持Mathjax<br>这里用Kramed渲染器, Kramed支持Mathjax数学公式</p>
+<ul>
+<li>将<code>Marked</code>渲染器改为<code>Kramed</code>渲染器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm uninstall hexo-renderer-marked --save</span><br><span class="line">$ npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="安装hexo-renderer-mathjax插件包"><a href="#安装hexo-renderer-mathjax插件包" class="headerlink" title="安装hexo-renderer-mathjax插件包"></a>安装hexo-renderer-mathjax插件包</h1><ul>
+<li><p>若已经安装了<code>hexo-math</code>插件包, 先卸载<code>hexo-math</code>插件包, 再安装<code>hexo-renderer-mathjax</code>插件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm uninstall hexo-math --save</span><br><span class="line">$ npm install hexo-renderer-mathjax --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再更新<code>Mathjax</code>的<code>CDN链接</code>, 打开node_modules/hexo-renderer-mathjax/mathjax.html</p>
+</li>
+<li>修改<code>&lt;scripts&gt;</code>标签<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="配置Blog主题的-config-yml文件"><a href="#配置Blog主题的-config-yml文件" class="headerlink" title="配置Blog主题的_config.yml文件"></a>配置Blog主题的_config.yml文件</h1><ul>
+<li>打开Blog主题中的<code>_config.yml</code>文件, 找到其中的<code>math</code>字段(如果没有, 自己添加)<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  engine:</span> <span class="string">mathjax</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="配置Blog本地根目录下的-config-yml文件"><a href="#配置Blog本地根目录下的-config-yml文件" class="headerlink" title="配置Blog本地根目录下的_config.yml文件"></a>配置Blog本地根目录下的_config.yml文件</h1><ul>
+<li>打开Blog本地根目录下的<code>_config.yml</code>文件</li>
+<li>添加插件包<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">Plugins:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo-renderer-mathjax</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="给文章开启Mathjax渲染"><a href="#给文章开启Mathjax渲染" class="headerlink" title="给文章开启Mathjax渲染"></a>给文章开启Mathjax渲染</h1><ul>
+<li>开启Mathjax渲染<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title:</span><br><span class="line">date:</span><br><span class="line">tags:</span><br><span class="line">mathjax: true</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>自己在部署网站后遇到的一个小问题, 最终用这个方法解决了, 分享一下</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

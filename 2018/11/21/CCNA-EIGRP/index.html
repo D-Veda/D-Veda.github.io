@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>#CCNA# EIGRP协议 | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CCNA,网络,">
+  
+
+  <meta name="description" content="概要EIGRP协议是Cisco开发且专用的高级距离矢量路由选择协议, 集链路状态路由选择协议和距离矢量协议路由选择的优点为一身EIGRP协议适用于多种不同的拓扑和介质中, 是Cisco设备常用的路由选择协议之一EIGRP协议能快速汇聚, 占用的带宽少, 支持多种网络层协议, 支持无线路由选择, 开销低, 负载均衡, 易于汇总 EIGRP协议EIGRP(Enhanced Interior Gatew">
+<meta name="keywords" content="CCNA,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#CCNA# EIGRP协议">
+<meta property="og:url" content="https://d-veda.top/2018/11/21/CCNA-EIGRP/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="概要EIGRP协议是Cisco开发且专用的高级距离矢量路由选择协议, 集链路状态路由选择协议和距离矢量协议路由选择的优点为一身EIGRP协议适用于多种不同的拓扑和介质中, 是Cisco设备常用的路由选择协议之一EIGRP协议能快速汇聚, 占用的带宽少, 支持多种网络层协议, 支持无线路由选择, 开销低, 负载均衡, 易于汇总 EIGRP协议EIGRP(Enhanced Interior Gatew">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://d-veda.top/images/eigrp/sanzhangbiao.jpg">
+<meta property="og:image" content="https://d-veda.top/images/eigrp/eigrp.png">
+<meta property="og:image" content="https://d-veda.top/images/eigrp/route.png">
+<meta property="og:updated_time" content="2019-01-25T06:51:45.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#CCNA# EIGRP协议">
+<meta name="twitter:description" content="概要EIGRP协议是Cisco开发且专用的高级距离矢量路由选择协议, 集链路状态路由选择协议和距离矢量协议路由选择的优点为一身EIGRP协议适用于多种不同的拓扑和介质中, 是Cisco设备常用的路由选择协议之一EIGRP协议能快速汇聚, 占用的带宽少, 支持多种网络层协议, 支持无线路由选择, 开销低, 负载均衡, 易于汇总 EIGRP协议EIGRP(Enhanced Interior Gatew">
+<meta name="twitter:image" content="https://d-veda.top/images/eigrp/sanzhangbiao.jpg">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概要"><span class="toc-text">概要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EIGRP协议"><span class="toc-text">EIGRP协议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EIGRP重要组件"><span class="toc-text">EIGRP重要组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#EIGRP邻居发现机制"><span class="toc-text">EIGRP邻居发现机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EIGRP弥散邻居算法发-简介"><span class="toc-text">EIGRP弥散邻居算法发(简介)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EIGRP三张表及路由获取原理"><span class="toc-text">EIGRP三张表及路由获取原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EIGRP协议实验"><span class="toc-text">EIGRP协议实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#EIGRP协议配置命令"><span class="toc-text">EIGRP协议配置命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EIGRP协议相关的Show命令"><span class="toc-text">EIGRP协议相关的Show命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例"><span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CCNA-EIGRP" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">#CCNA# EIGRP协议</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.11.21</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网络/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>EIGRP协议是Cisco开发且专用的高级距离矢量路由选择协议, 集链路状态路由选择协议和距离矢量协议路由选择的优点为一身<br>EIGRP协议适用于多种不同的拓扑和介质中, 是Cisco设备常用的路由选择协议之一<br>EIGRP协议能快速汇聚, 占用的带宽少, 支持多种网络层协议, 支持无线路由选择, 开销低, 负载均衡, 易于汇总</p>
+<h1 id="EIGRP协议"><a href="#EIGRP协议" class="headerlink" title="EIGRP协议"></a>EIGRP协议</h1><p>EIGRP(Enhanced Interior Gateway Routing Protocol)<br>EIGRP协议是标准的距离矢量协议<br>EIGRP协议使用<code>带宽</code>/<code>延迟</code>作为路径选择的标准<br>EIGRP协议的管理距离AD <code>90</code>(Internal) <code>170</code>(External)<br>EIGRP协议使用IP协议号<code>88</code>交换数据包, 使用内置<code>RTP协议</code>确保数据交换的可靠性<br>EIGRP协议是Cisco私有的协议(2013年已经公有化)<br>EIGRP协议使用组播<code>224.0.0.10</code>交换协议数据包<br>EIGRP协议不需要周期向邻居通告<code>协议报文</code>(<code>RTP协议</code>确保EIGRP协议报文安全)</p>
+<h1 id="EIGRP重要组件"><a href="#EIGRP重要组件" class="headerlink" title="EIGRP重要组件"></a>EIGRP重要组件</h1><ul>
+<li>EIGRP邻居发现机制</li>
+<li>EIGRP弥散更新算法DUAL</li>
+<li>EIGRP可靠传输协议RTP</li>
+<li>EIGRP多协议模板</li>
+</ul>
+<h2 id="EIGRP邻居发现机制"><a href="#EIGRP邻居发现机制" class="headerlink" title="EIGRP邻居发现机制"></a>EIGRP邻居发现机制</h2><p>由于RIP协议收敛速度慢, 被动等待计时器来收敛网络, 不能主动的识别网络故障<br>而出现了EIGRP邻居发现机制解决方案:</p>
+<ul>
+<li>主动的探测网络的可用性</li>
+<li>加快网络收敛</li>
+<li>增强网络稳定性</li>
+</ul>
+<p>EIGRP邻居发现机制通过发送并交换Hello报文来建立, 维护, 终止邻居关系<br>EIGRP协议每隔<code>5s</code>发送Hello报文, 若<code>15s</code>没有收到邻居的Hello报文就取消建立邻居关系<br>EIGRP协议通过匹配参数(<code>K值</code>, <code>AS号</code>, <code>认证</code>)来建立邻居关系<br>EIGRP协议的邻居发现机制会加快收敛, 主动识别网络, 增强EIGRP的<code>会话稳定</code>(完全删除一条路由最多需要<code>15s</code>)</p>
+<h2 id="EIGRP弥散邻居算法发-简介"><a href="#EIGRP弥散邻居算法发-简介" class="headerlink" title="EIGRP弥散邻居算法发(简介)"></a>EIGRP弥散邻居算法发(简介)</h2><p><code>FD</code>: 本地到达目标网段所花费的开销<br><code>AD</code>: 邻居到达目标网段所花费的开销<br><code>FC</code>(可行性条件): FS(AD) &lt; S(FD)<br><code>FS</code>: 满足FC条件的路由, 称为FS<br><code>S</code>: 拥有最小FD的路由, 称为S</p>
+<h1 id="EIGRP三张表及路由获取原理"><a href="#EIGRP三张表及路由获取原理" class="headerlink" title="EIGRP三张表及路由获取原理"></a>EIGRP三张表及路由获取原理</h1><p><img src="/images/eigrp/sanzhangbiao.jpg" alt="EIGRP三张表"></p>
+<hr>
+<h1 id="EIGRP协议实验"><a href="#EIGRP协议实验" class="headerlink" title="EIGRP协议实验"></a>EIGRP协议实验</h1><p><img src="/images/eigrp/eigrp.png" alt="EIGRP协议实验"></p>
+<ul>
+<li>要求: PC1, PC2能够互相ping通</li>
+</ul>
+<h2 id="EIGRP协议配置命令"><a href="#EIGRP协议配置命令" class="headerlink" title="EIGRP协议配置命令"></a>EIGRP协议配置命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Router(config)#router eigrp AS</span><br><span class="line">Router(config-router)#no auto-summary</span><br><span class="line">Router(config-router)#network 1.1.1.1 0.0.0.0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注释<blockquote>
+<p><code>router eigrp AS</code>(eigrp区域的所有设备AS一定要相同, AS通常输入90)<br><code>no auto-summary</code>(关闭自动汇总)<br><code>network 1.1.1.1 0.0.0.0</code>(宣告本地直连的所有接口网段和自身虚拟接口的网段, 这里用Mask反掩码)</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="EIGRP协议相关的Show命令"><a href="#EIGRP协议相关的Show命令" class="headerlink" title="EIGRP协议相关的Show命令"></a>EIGRP协议相关的Show命令</h2><p><code>show ip interface brief</code>(查看接口状态及IP信息)<br><code>show running-config</code>(查看所有配置)<br><code>show interfaces fastEthernet 0/0</code>(查看接口<em>fastEthernet 0/0</em>的具体配置)<br><code>show running-config | section eigrp</code>(查看EIGRP具体配置)<br><code>show ip eigrp neighbors</code>(查看EIGRP协议邻居关系)<br><code>show ip eigrp topology</code>(查看EIGRP协议数据库)<br><code>show ip protocols</code>(查看协议信息)<br><code>show ip route</code>(查看路由表信息)<br><code>show ip route eigrp</code>(查看只包含EIGRP路由的路由表信息)</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p><img src="/images/eigrp/route.png" alt="实例"></p>
+<ul>
+<li>敲完协议后可以用<code>show ip route</code>和<code>show running-config</code>命令检查是否出现错误</li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>EIGRP需要注意的是在敲协议的时候, 输入的是反掩码</li>
+<li>可以尝试将不同协议的网络连在一起(提示: 默认路由)</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

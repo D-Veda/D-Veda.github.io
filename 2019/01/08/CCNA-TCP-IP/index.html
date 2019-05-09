@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>#CCNA# TCP/IP协议栈的Internet层与传输层 | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CCNA,网络,">
+  
+
+  <meta name="description" content="概要网络层负责IP数据包的产生以及IP数据包在逻辑网络上的路由转发传输层提供端到端通信服务层次, 提供可靠和不可靠连接 Internet层(网络层)特征Internet层是TCP/IP协议栈中核心协议Internet层提供端到端多条路径的选路Internet层是面向无连接的协议Internet层提供尽力而为传输, 不保证数据传输的可靠性Internet层无数据恢复功能Internet层独立处理的数">
+<meta name="keywords" content="CCNA,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#CCNA# TCP&#x2F;IP协议栈的Internet层与传输层">
+<meta property="og:url" content="https://d-veda.top/2019/01/08/CCNA-TCP-IP/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="概要网络层负责IP数据包的产生以及IP数据包在逻辑网络上的路由转发传输层提供端到端通信服务层次, 提供可靠和不可靠连接 Internet层(网络层)特征Internet层是TCP/IP协议栈中核心协议Internet层提供端到端多条路径的选路Internet层是面向无连接的协议Internet层提供尽力而为传输, 不保证数据传输的可靠性Internet层无数据恢复功能Internet层独立处理的数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/ipbaotou.jpg">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/dailiarp.png">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/dhcp.jpg">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/duibi.jpg">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/udpbaotou.png">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/woshou.png">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/shujujiaohuan.png">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/huishou.png">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/yingshe.png">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/yingshe2.png">
+<meta property="og:image" content="https://d-veda.top/images/wangluoyuchuanshu/yingshe3.jpg">
+<meta property="og:updated_time" content="2019-01-12T07:41:39.244Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#CCNA# TCP&#x2F;IP协议栈的Internet层与传输层">
+<meta name="twitter:description" content="概要网络层负责IP数据包的产生以及IP数据包在逻辑网络上的路由转发传输层提供端到端通信服务层次, 提供可靠和不可靠连接 Internet层(网络层)特征Internet层是TCP/IP协议栈中核心协议Internet层提供端到端多条路径的选路Internet层是面向无连接的协议Internet层提供尽力而为传输, 不保证数据传输的可靠性Internet层无数据恢复功能Internet层独立处理的数">
+<meta name="twitter:image" content="https://d-veda.top/images/wangluoyuchuanshu/ipbaotou.jpg">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概要"><span class="toc-text">概要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Internet层-网络层-特征"><span class="toc-text">Internet层(网络层)特征</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IP协议"><span class="toc-text">IP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP-Internet-Control-Message-Protocol-协议"><span class="toc-text">ICMP(Internet Control Message Protocol)协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Traceroute协议"><span class="toc-text">Traceroute协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP-Address-Resolution-Protocol-协议"><span class="toc-text">ARP(Address Resolution Protocol)协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RARP-Reverse-Address-Resolution-Protocol-协议"><span class="toc-text">RARP(Reverse Address Resolution Protocol)协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代理ARP协议"><span class="toc-text">代理ARP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#免费ARP协议"><span class="toc-text">免费ARP协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DHCP-Dynamic-Host-Configuration-Protocol-协议"><span class="toc-text">DHCP(Dynamic Host Configuration Protocol)协议</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#传输层特征"><span class="toc-text">传输层特征</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UDP协议"><span class="toc-text">UDP协议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP协议"><span class="toc-text">TCP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP协议三大阶段"><span class="toc-text">TCP协议三大阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三次握手"><span class="toc-text">三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据交换"><span class="toc-text">数据交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四次挥手"><span class="toc-text">四次挥手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#映射过程"><span class="toc-text">映射过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CCNA-TCP-IP" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">#CCNA# TCP/IP协议栈的Internet层与传输层</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.01.08</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网络/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>网络层负责IP数据包的产生以及IP数据包在逻辑网络上的路由转发<br>传输层提供端到端通信服务层次, 提供可靠和不可靠连接</p>
+<h1 id="Internet层-网络层-特征"><a href="#Internet层-网络层-特征" class="headerlink" title="Internet层(网络层)特征"></a>Internet层(网络层)特征</h1><p>Internet层是TCP/IP协议栈中核心协议<br>Internet层提供端到端多条路径的选路<br>Internet层是面向无连接的协议<br>Internet层提供尽力而为传输, 不保证数据传输的可靠性<br>Internet层无数据恢复功能<br>Internet层独立处理的数据称为数据包</p>
+<p><strong>IP报头</strong></p>
+<p><img src="/images/wangluoyuchuanshu/ipbaotou.jpg" alt="IP报头"></p>
+<h2 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h2><p>IP协议是网络层中最为核心的子协议<br>IP地址是IP协议的重要组成部分<br>IP地址唯一标识IP网络中的三层设备<br>Internet层选路是通过IP寻址来实现的</p>
+<h2 id="ICMP-Internet-Control-Message-Protocol-协议"><a href="#ICMP-Internet-Control-Message-Protocol-协议" class="headerlink" title="ICMP(Internet Control Message Protocol)协议"></a>ICMP(Internet Control Message Protocol)协议</h2><p>ICMP协议是网络层的一个子协议<br>ICMP协议提供对IP路径探测的服务<br>我们可以通过ICMP协议确定互联网的PC的存活性</p>
+<h3 id="Traceroute协议"><a href="#Traceroute协议" class="headerlink" title="Traceroute协议"></a>Traceroute协议</h3><p>Traceroute协议是Internet层的一个子协议<br>Traceroute协议提供对IP路径沿途地址记录的服务<br>Ping程序只能确定对应服务器是否处于活动状态<br>Traceroute程序可以帮组我们记录沿途路径信息</p>
+<h2 id="ARP-Address-Resolution-Protocol-协议"><a href="#ARP-Address-Resolution-Protocol-协议" class="headerlink" title="ARP(Address Resolution Protocol)协议"></a>ARP(Address Resolution Protocol)协议</h2><p>ARP协议是Internet层的一个子协议<br>ARP协议为IP地址到对应MAC地址之间提供动态解析<br>ARP解析过程是系统自动完成的, 不需要人为参与</p>
+<h3 id="RARP-Reverse-Address-Resolution-Protocol-协议"><a href="#RARP-Reverse-Address-Resolution-Protocol-协议" class="headerlink" title="RARP(Reverse Address Resolution Protocol)协议"></a>RARP(Reverse Address Resolution Protocol)协议</h3><p>RARP协议是网络层的一个子协议<br>RARP协议为MAC地址到对应IP地址之间提供动态解析<br>RARP解析过程是系统自动完成的, 不需要人为参与<br>RARP协议是DHCP协议的基石</p>
+<h3 id="代理ARP协议"><a href="#代理ARP协议" class="headerlink" title="代理ARP协议"></a>代理ARP协议</h3><p>代理ARP协议是网络层的一个子协议<br>代理ARP协议为没有路由功能的设备提供网关服务<br>代理ARP在Cisco路由器上默认开启的</p>
+<p><img src="/images/wangluoyuchuanshu/dailiarp.png" alt="代理ARP"></p>
+<h3 id="免费ARP协议"><a href="#免费ARP协议" class="headerlink" title="免费ARP协议"></a>免费ARP协议</h3><p>免费ARP协议是网络层的一个子协议<br>免费ARP协议用于检查网络中是否存在重复IP地址(系统自动执行)<br>免费ARP协议用于刷新MAC地址(<code>HSRP</code>/<code>VRRP</code>/<code>GLBP</code>)</p>
+<h2 id="DHCP-Dynamic-Host-Configuration-Protocol-协议"><a href="#DHCP-Dynamic-Host-Configuration-Protocol-协议" class="headerlink" title="DHCP(Dynamic Host Configuration Protocol)协议"></a>DHCP(Dynamic Host Configuration Protocol)协议</h2><ul>
+<li>DHCP工作机制<blockquote>
+<p>rarp discover (PC向网段内发送DHCP请求组播包|<code>广播</code>)<br>rarp offer (网络内的Servers回应PC Offer|<code>单播</code>)<br>bootp request (PC选择一个server, 再次发送DHCP完整请求|<code>单播</code>)<br>bootp relay (Server回应Client DHCP信息|<code>单播</code>)</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/images/wangluoyuchuanshu/dhcp.jpg" alt="DHCP协议"></p>
+<hr>
+<h1 id="传输层特征"><a href="#传输层特征" class="headerlink" title="传输层特征"></a>传输层特征</h1><p>传输层是TCP/IP协议栈中核心协议<br>传输层提供端到端数据传输过程中的可靠性<br>传输层独立处理的数据称为数据段<br>传输层两大重要协议<code>TCP</code>/<code>UDP</code><br><code>TCP</code>: 可靠的传输协议<br><code>UDP</code>: 尽力而为的传输协议</p>
+<p><img src="/images/wangluoyuchuanshu/duibi.jpg" alt="TCP/UDP"></p>
+<h1 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h1><p><strong>特点</strong></p>
+<ul>
+<li>运行于OSI模型和TCP/IP协议栈的传输层</li>
+<li>为应用程序提供网络层接入而无需为可靠性机制付出多余开销</li>
+<li>属无连接协议</li>
+<li>提供有限的错误检查</li>
+<li>提供尽力传输</li>
+<li>不具备数据恢复功能</li>
+</ul>
+<p><strong>UDP协议报头</strong></p>
+<p><img src="/images/wangluoyuchuanshu/udpbaotou.png" alt="UDP协议报头"></p>
+<h1 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h1><p><strong>特点</strong></p>
+<p>面向连接: 两台计算机建立一条连接以交换数据<br>全双工: TCP协议连接是一对虚链路, 分为上行链路, 下行链路<br>错误差错: 使用校验和来检查分组是否受损<br>排序: 对分组进行编号, 让目标设备能够重新排列分组顺序, 并判断是否存在遗漏分组<br>确认: 收到分组后, 接收方给发送方返回确认, 指出分组已经收到<br>流量控制: 调整收发双方的速率差<br>分组恢复服务: 接收方可请求遗失分组</p>
+<h2 id="TCP协议三大阶段"><a href="#TCP协议三大阶段" class="headerlink" title="TCP协议三大阶段"></a>TCP协议三大阶段</h2><p>初始建立: 三次握手<br>控制传输: <a href="http://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/" target="_blank" rel="noopener">Sequence Number/Ack</a><br>断开连接: 四次挥手</p>
+<h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p><img src="/images/wangluoyuchuanshu/woshou.png" alt="三次握手"></p>
+<h3 id="数据交换"><a href="#数据交换" class="headerlink" title="数据交换"></a>数据交换</h3><p><img src="/images/wangluoyuchuanshu/shujujiaohuan.png" alt="数据交换"></p>
+<h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><p><img src="/images/wangluoyuchuanshu/huishou.png" alt="四次挥手"></p>
+<h3 id="映射过程"><a href="#映射过程" class="headerlink" title="映射过程"></a>映射过程</h3><ul>
+<li><p>将第二层映射到第三层<br><img src="/images/wangluoyuchuanshu/yingshe.png" alt="映射1"></p>
+</li>
+<li><p>将第三层映射到第四层<br><img src="/images/wangluoyuchuanshu/yingshe2.png" alt="映射2"></p>
+</li>
+<li><p>将第四层映射到高层<br><img src="/images/wangluoyuchuanshu/yingshe3.jpg" alt="映射3"></p>
+</li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>在TCP/IP协议栈中, Internet层协议为不同终端提供逻辑通信, 传输层协议为不同终端上运行的进程提供逻辑通信, 这个区别非常重要</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

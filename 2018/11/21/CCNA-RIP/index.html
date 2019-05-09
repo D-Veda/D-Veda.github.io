@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>#CCNA# RIP协议 | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CCNA,网络,">
+  
+
+  <meta name="description" content="RIP协议RIP(Routing Information Protocol)RIP是标准的距离矢量协议RIP使用hop作为路径选择的标准RIP的Metric数值最大为15, hop = 15, 超过15记为无效RIP的管理距离AD 120RIP使用UDP, 源目520端口交换数据包RIP只适用于小型网络(当今网络基本看不到RIP协议的影子了)算法简易, 容易产生次优路径RIP每隔30s向邻居通告本">
+<meta name="keywords" content="CCNA,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#CCNA# RIP协议">
+<meta property="og:url" content="https://d-veda.top/2018/11/21/CCNA-RIP/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="RIP协议RIP(Routing Information Protocol)RIP是标准的距离矢量协议RIP使用hop作为路径选择的标准RIP的Metric数值最大为15, hop = 15, 超过15记为无效RIP的管理距离AD 120RIP使用UDP, 源目520端口交换数据包RIP只适用于小型网络(当今网络基本看不到RIP协议的影子了)算法简易, 容易产生次优路径RIP每隔30s向邻居通告本">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://d-veda.top/images/rip/ripyuanli.png">
+<meta property="og:image" content="https://d-veda.top/images/rip/huihuan.png">
+<meta property="og:image" content="https://d-veda.top/images/rip/shiyan.png">
+<meta property="og:updated_time" content="2019-01-25T05:49:00.061Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#CCNA# RIP协议">
+<meta name="twitter:description" content="RIP协议RIP(Routing Information Protocol)RIP是标准的距离矢量协议RIP使用hop作为路径选择的标准RIP的Metric数值最大为15, hop = 15, 超过15记为无效RIP的管理距离AD 120RIP使用UDP, 源目520端口交换数据包RIP只适用于小型网络(当今网络基本看不到RIP协议的影子了)算法简易, 容易产生次优路径RIP每隔30s向邻居通告本">
+<meta name="twitter:image" content="https://d-veda.top/images/rip/ripyuanli.png">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RIP协议"><span class="toc-text">RIP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RIPv1特性-基本不用"><span class="toc-text">RIPv1特性(基本不用)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RIPv2特性"><span class="toc-text">RIPv2特性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RIP协议的缺陷"><span class="toc-text">RIP协议的缺陷</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RIP协议的工作原理"><span class="toc-text">RIP协议的工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RIP计时器"><span class="toc-text">RIP计时器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由环路"><span class="toc-text">路由环路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RIP协议的防环路机制"><span class="toc-text">RIP协议的防环路机制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RIP协议实验"><span class="toc-text">RIP协议实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RIP配置命令"><span class="toc-text">RIP配置命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RIP相关Show命令"><span class="toc-text">RIP相关Show命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CCNA-RIP" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">#CCNA# RIP协议</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.11.21</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网络/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h1><p>RIP(Routing Information Protocol)<br>RIP是标准的距离矢量协议<br>RIP使用<code>hop</code>作为路径选择的标准<br>RIP的Metric数值最大为<code>15</code>, hop = 15, 超过15记为无效<br>RIP的管理距离AD <code>120</code><br>RIP使用<code>UDP</code>, 源目<code>520</code>端口交换数据包<br>RIP只适用于小型网络(当今网络基本看不到RIP协议的影子了)<br>算法简易, 容易产生次优路径<br>RIP每隔30s向邻居通告本地RIP路由表信息(安全机制)</p>
+<h2 id="RIPv1特性-基本不用"><a href="#RIPv1特性-基本不用" class="headerlink" title="RIPv1特性(基本不用)"></a>RIPv1特性(基本不用)</h2><ul>
+<li>适用<code>255.255.255.255</code>作为协议报文的目标地址</li>
+<li>有类协议(不支持不连续子网, 只支持有类的地址)</li>
+<li><code>RIPv1</code>收发原则(CCIE详解)</li>
+</ul>
+<h2 id="RIPv2特性"><a href="#RIPv2特性" class="headerlink" title="RIPv2特性"></a>RIPv2特性</h2><ul>
+<li>使用<code>224.0.0.9</code>作为协议报文的目标地址</li>
+<li>无类协议(支持不连续子网, 支持无类的地址)</li>
+<li>支持认证机制, 明文/MD5</li>
+</ul>
+<h1 id="RIP协议的缺陷"><a href="#RIP协议的缺陷" class="headerlink" title="RIP协议的缺陷"></a>RIP协议的缺陷</h1><p>过于简单, 以跳数为依据计算度量值, 经常计算出非最优路由<br>度量值以16为限, 不适合大的网络<br>已经退出历史舞台<br>安全性差, 接受来自任何设备的路由更新(RIPv1没有认证机制)<br>RIPv1不支持无类IP地址和VLSM<br>收敛缓慢, 需要240秒来作废一条路由(链路断掉等待240秒)<br>消耗带宽很大/周期性的交换RIP路由表信息</p>
+<h1 id="RIP协议的工作原理"><a href="#RIP协议的工作原理" class="headerlink" title="RIP协议的工作原理"></a>RIP协议的工作原理</h1><p><img src="/images/rip/ripyuanli.png" alt="RIP协议工作原理"><br>开启RIP进程的端口, 每隔30s对外发送本地路由信息</p>
+<blockquote>
+<ol>
+<li>发送<br><code>R1</code>向<code>R2</code>发送<code>路由信息</code>(1.1.1.1/32, 12.0.0.0/24)<br><code>R2</code>向<code>R1</code>和<code>R3</code>发送<code>路由信息</code>(12.0.0.0/24, 2.2.2.2/32, 23.0.0.0/24)<br><code>R3</code>向<code>R2</code>和<code>R4</code>发送<code>路由信息</code>(23.0.0.0/24, 3.3.3.3/32, 34.0.0.0/24)<br><code>R4</code>向<code>R3</code>发送<code>路由信息</code>(4.4.4.4/32, 34.0.0.0/24)</li>
+<li>接收更新信息, 将其存放在数据库<br><code>R2</code>收到<code>R1</code>和<code>R3</code>的更新信息<br><code>R3</code>收到<code>R2</code>和<code>R4</code>的更新信息<br><code>R4</code>收到<code>R3</code>的更新信息</li>
+<li><code>R1</code>, <code>R2</code>, <code>R3</code>在本地数据库(存放接收到路由信息)里面运行协议算法, 将<code>Metric</code>最优的路径推送到路由表</li>
+</ol>
+</blockquote>
+<h2 id="RIP计时器"><a href="#RIP计时器" class="headerlink" title="RIP计时器"></a>RIP计时器</h2><ul>
+<li><p>更新计时器: 30s周期更新±5s</p>
+</li>
+<li><p>无效计时器: 180s<br>如果在180s内仍然没有收到对应更新信息, 路由记为无效, 从路由表中删除, 但仍然保存在数据库中</p>
+</li>
+<li><p>刷新计时器: 当路由记为<code>possible down</code>, 60s仍然没有收到更新, 将彻底删除所有<code>信息</code>(包括数据库)</p>
+</li>
+<li><p>抑制计时器: 180s<br>若一个目标地址不可达时, 启动抑制计时器, 直到超时, 路由器才会从端口中接收相关路由的更新信息<br>作用: 防止路由器抖动(链路不稳定而引发网络中路由表的频繁改变)</p>
+</li>
+</ul>
+<h2 id="路由环路"><a href="#路由环路" class="headerlink" title="路由环路"></a>路由环路</h2><p><img src="/images/rip/huihuan.png" alt="路由环路"><br>路由信息在<code>邻居路由</code>中互相发送形成环路, 而导致部分路由信息无法被接收</p>
+<h3 id="RIP协议的防环路机制"><a href="#RIP协议的防环路机制" class="headerlink" title="RIP协议的防环路机制"></a>RIP协议的防环路机制</h3><p>Split Horizon: 从一个接口收到的路由不再从此接口发出<br>Defining a Maximum: 计数到无穷大(16跳)<br>Route Poisoning: 将不可达路由直接设成Infinity(16跳)后发送出去<br>Triggered Updates: 当拓扑变化时立即发送更新</p>
+<hr>
+<h1 id="RIP协议实验"><a href="#RIP协议实验" class="headerlink" title="RIP协议实验"></a>RIP协议实验</h1><p><img src="/images/rip/shiyan.png" alt="实验"></p>
+<ul>
+<li>要求: r1, r2, r3, r4能够互相Ping通</li>
+</ul>
+<h2 id="RIP配置命令"><a href="#RIP配置命令" class="headerlink" title="RIP配置命令"></a>RIP配置命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Router(config)#router rip</span><br><span class="line">Router(config-router)#version 2</span><br><span class="line">Router(config-router)#no auto-summary</span><br><span class="line">Router(config-router)#network 1.0.0.0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注释<br><code>version 2</code>(启用RIPv2)<br><code>no auto-summary</code>(关闭自动汇总)<br><code>network 1.0.0.0</code>(宣告本地直连接口主网络号1.0.0.0)</li>
+</ul>
+<h2 id="RIP相关Show命令"><a href="#RIP相关Show命令" class="headerlink" title="RIP相关Show命令"></a>RIP相关Show命令</h2><p><code>show ip interface brief</code>(查看接口状态及ip信息)<br><code>show running-config</code>(查看所有配置)<br><code>show interfaces fastEthernet 0/0</code>(查看接口Fa0/0的具体配置)<br><code>show ip rip database</code>(查看RIP协议数据库)<br><code>show ip protocols</code>(查看协议信息)<br><code>show ip route</code>(查看路由表信息)<br><code>show ip route rip</code>(查看只包含RIP路由的路由表信息)</p>
+<ul>
+<li>RIP协议需要给路由器配置虚拟接口(环回口)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Router(config)#int loopback 0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中<code>0</code>是环回口的端口号</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>这里只是给出相关命令配置, 配置方法和之前的相似, 自己琢磨, 实践还是要靠自己啦o(*￣︶￣*)o</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

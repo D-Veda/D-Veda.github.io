@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>#CCNA# IP地址(1) | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CCNA,网络,">
+  
+
+  <meta name="description" content="概要IP地址简单地说就是一个连接了网络的终端在网络中的地址目前已经普及的是IPv4地址这里不做具体解释, 内容太多(＠_＠;) 为什么需要的IP地址 网络层中的选路功能需要IP地址选路 IP地址位于三层设备中    IP地址表示方式IP地址用二进制表示, 总长 32 biteIP地址分为4段, 每段长 8 biteIP地址二进制中的每一段bite作为单位, 其中8 bite=1 Byte1 bit">
+<meta name="keywords" content="CCNA,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#CCNA# IP地址(1)">
+<meta property="og:url" content="https://d-veda.top/2018/11/09/CCNA-IP-1/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="概要IP地址简单地说就是一个连接了网络的终端在网络中的地址目前已经普及的是IPv4地址这里不做具体解释, 内容太多(＠_＠;) 为什么需要的IP地址 网络层中的选路功能需要IP地址选路 IP地址位于三层设备中    IP地址表示方式IP地址用二进制表示, 总长 32 biteIP地址分为4段, 每段长 8 biteIP地址二进制中的每一段bite作为单位, 其中8 bite=1 Byte1 bit">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://d-veda.top/images/2jinzhizhuanhuan.png">
+<meta property="og:updated_time" content="2019-01-23T07:22:41.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#CCNA# IP地址(1)">
+<meta name="twitter:description" content="概要IP地址简单地说就是一个连接了网络的终端在网络中的地址目前已经普及的是IPv4地址这里不做具体解释, 内容太多(＠_＠;) 为什么需要的IP地址 网络层中的选路功能需要IP地址选路 IP地址位于三层设备中    IP地址表示方式IP地址用二进制表示, 总长 32 biteIP地址分为4段, 每段长 8 biteIP地址二进制中的每一段bite作为单位, 其中8 bite=1 Byte1 bit">
+<meta name="twitter:image" content="https://d-veda.top/images/2jinzhizhuanhuan.png">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概要"><span class="toc-text">概要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么需要的IP地址"><span class="toc-text">为什么需要的IP地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP地址表示方式"><span class="toc-text">IP地址表示方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP地址组成方式"><span class="toc-text">IP地址组成方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#网络位"><span class="toc-text">网络位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主机位"><span class="toc-text">主机位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mask掩码"><span class="toc-text">Mask掩码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网段的计算"><span class="toc-text">网段的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#广播地址及其计算"><span class="toc-text">广播地址及其计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网段中成员范围"><span class="toc-text">网段中成员范围</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例子"><span class="toc-text">例子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#十进制转二进制加速公式"><span class="toc-text">十进制转二进制加速公式</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP地址的分类-有类IP地址"><span class="toc-text">IP地址的分类(有类IP地址)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A类地址"><span class="toc-text">A类地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B类地址"><span class="toc-text">B类地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C类地址"><span class="toc-text">C类地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D类地址-组播地址"><span class="toc-text">D类地址(组播地址)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E类地址-科研地址"><span class="toc-text">E类地址(科研地址)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP网络环境"><span class="toc-text">IP网络环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CCNA-IP-1" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">#CCNA# IP地址(1)</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.11.09</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网络/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>IP地址简单地说就是一个连接了网络的终端在网络中的地址<br>目前已经普及的是IPv4地址<br>这里不做具体解释, 内容太多(＠_＠;)</p>
+<h1 id="为什么需要的IP地址"><a href="#为什么需要的IP地址" class="headerlink" title="为什么需要的IP地址"></a>为什么需要的IP地址</h1><ul>
+<li>网络层中的选路功能需要IP地址选路<ul>
+<li>IP地址位于三层设备中</li>
+</ul>
+</li>
+</ul>
+<h1 id="IP地址表示方式"><a href="#IP地址表示方式" class="headerlink" title="IP地址表示方式"></a>IP地址表示方式</h1><p>IP地址用二进制表示, 总长 <code>32 bite</code><br>IP地址分为4段, 每段长 <code>8 bite</code><br>IP地址二进制中的每一段<code>bite</code>作为单位, 其中<code>8 bite</code>=<code>1 Byte</code><br><code>1 bite</code>也叫做<code>1位</code>, 通常简写为<code>1b</code><br>每一段之间都用<code>.</code>隔开</p>
+<blockquote>
+<p>IP地址可输入的最大范围</p>
+<ul>
+<li>二进制:</li>
+<li><code>00000000.00000000.00000000.00000000</code>——<code>11111111.11111111.11111111.11111111</code></li>
+<li>十进制:</li>
+<li><code>0.0.0.0</code>——<code>255.255.255.255</code></li>
+</ul>
+</blockquote>
+<h1 id="IP地址组成方式"><a href="#IP地址组成方式" class="headerlink" title="IP地址组成方式"></a>IP地址组成方式</h1><ul>
+<li>网络位/主机位</li>
+<li>网络位+主机位=32b</li>
+</ul>
+<blockquote>
+<p>例如我们常用的路由器IP地址<br><code>192.168.1.1</code><br>在这个IP地址中<br>网络位: 24b<br>主机位: 8b</p>
+</blockquote>
+<h2 id="网络位"><a href="#网络位" class="headerlink" title="网络位"></a>网络位</h2><p>网络位又叫网络地址, 网络号, 网段, 网络位划分直接的<code>通信域</code>(同属于一个网段的IP地址可以直接通信)</p>
+<h2 id="主机位"><a href="#主机位" class="headerlink" title="主机位"></a>主机位</h2><ul>
+<li>主机位用来表示通信域里面的每一个成员</li>
+</ul>
+<h2 id="Mask掩码"><a href="#Mask掩码" class="headerlink" title="Mask掩码"></a>Mask掩码</h2><ul>
+<li>Mask掩码用来区分网络位和主机位</li>
+<li>Mask掩码决定了IP地址的网络位</li>
+<li>二进制中: 1表示网络位, 0表示主机位</li>
+</ul>
+<blockquote>
+<p>我们仍以上面<code>192.168.1.1</code>这个IP地址为例<br>这个IP地址的网络位有24位, 主机位有8位<br>将现在的这个十进制的IP地址转化位二进制后可以得到<br><code>11000000.10101000.00000001.00000001</code></p>
+<p>由于网络位是24位, 主机位是8位, 所以Mask掩码的二进制是<br><code>11111111.11111111.11111111.00000000</code><br>转换成十进制就是<code>255.255.255.0</code></p>
+</blockquote>
+<h3 id="网段的计算"><a href="#网段的计算" class="headerlink" title="网段的计算"></a>网段的计算</h3><ul>
+<li>网段的计算由IP地址和Mask掩码的与运算组成</li>
+<li>从左往右数(或从前往后数)若有n个1, 则该IP地址的网络位有n位, 主机位有(32-n)位</li>
+</ul>
+<blockquote>
+<p>在IP地址的二进制形式中:<br>从左往右数(或从前往后数)n位数字全部保留, n位之后的数字全部变为0<br>所保留的数字就是网络位(亦称: 网段), n位后的所有位数都用来表示主机位<br>最后将二进制的IP地址转换为十进制, 就是我们通常能在电脑中看到的网段形式</p>
+</blockquote>
+<h3 id="广播地址及其计算"><a href="#广播地址及其计算" class="headerlink" title="广播地址及其计算"></a>广播地址及其计算</h3><ul>
+<li><p>广播地址用来广播目标, 一个通信域内的成员都能接受到的一个<code>广播消息</code>(网段内的广播消息)</p>
+</li>
+<li><p>广播地址的计算: 和网段的计算一样, 广播地址只需要将IP地址二进制形式中的主机位的数字都改为1, 并转化为十进制就是广播地址</p>
+</li>
+</ul>
+<h3 id="网段中成员范围"><a href="#网段中成员范围" class="headerlink" title="网段中成员范围"></a>网段中成员范围</h3><ul>
+<li>除了网络地址(网段)和广播地址, 成员的范围是从主机位的最小数(末尾为1,其余为0)到最大数(每一位都为1)</li>
+</ul>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><blockquote>
+<p>IP地址: <code>192.168.1.1/24</code> (其中<code>/24</code>代表网络位有24位, 用<code>/</code>分隔IP地址和网络位, 只是这样标记方便, 在计算机看到的网络位都是以Mask掩码的形式表示出来的)<br>Mask掩码: <code>255.255.255.0</code></p>
+<p>将Mask掩码从十进制转化为二进制后得到<code>11111111.11111111.11111111.00000000</code><br>从左往右数(从前往后数)连续出现24个1, 所以网络位有24位, 主机位有8位<br>将IP地址<code>192.168.1.1</code>从十进制转化为二进制<code>11000000.10101000.00000001.00000001</code><br>由于网络位有24位所以将<code>11000000.10101000.00000001.00000001</code>中的前24位保留, 后8位全部改为0<br>得到<code>11000000.10101000.00000001.00000000</code>再转化为十进制的<code>192.168.1.0</code>就是IP地址<code>192.168.1.1</code>的网段</p>
+<p>将IP地址的二进制形式中的主机位都改成1得到<code>11000000.10101000.00000001.11111111</code><br>再将其转化为十进制形式得到<code>192.168.1.255</code>就是IP地址<code>192.168.1.1</code>的广播地址<br>所以网段<code>192.168.1.0</code>下成员的范围就是<code>192.168.1.1</code>——<code>192.168.1.254</code></p>
+</blockquote>
+<blockquote>
+<p>IP地址: <code>123.89.36.88/13</code><br>Mask掩码: <code>255.248.0.0</code></p>
+<p>IP地址(二进制): <code>01111011.01011001.00100100.01011000</code><br>Mask掩码(二进制): <code>11111111.11111000.00000000.00000000</code><br>网段(二进制): <code>01111011.01011000.00000000.00000000</code><br>广播地址(二进制): <code>01111011.01011111.11111111.11111111</code><br>网段(十进制): <code>123.88.0.0</code><br>广播地址: <code>123.95.255.255</code><br>成员的范围: <code>123.88.0.1</code>——<code>123.95.255.254</code></p>
+</blockquote>
+<h4 id="十进制转二进制加速公式"><a href="#十进制转二进制加速公式" class="headerlink" title="十进制转二进制加速公式"></a>十进制转二进制加速公式</h4><p><img src="/images/2jinzhizhuanhuan.png" alt="十进制转二进制表"><br>根据上面的公式表, 十进制数在255以内的自然数可以用对应二进制位数进行叠加<br>将二进制位对应的十进制数相加至与要转换的十进制数相等<br>所得到的就是十进制数对应的二进制数</p>
+<h1 id="IP地址的分类-有类IP地址"><a href="#IP地址的分类-有类IP地址" class="headerlink" title="IP地址的分类(有类IP地址)"></a>IP地址的分类(有类IP地址)</h1><p>保留地址:</p>
+<blockquote>
+<p>保留地址的网络只能在内部网络进行通信, 而不能与其他网络互连<br>一个网络中的保留地址同样能被其它网络使用</p>
+</blockquote>
+<p>公有地址:</p>
+<blockquote>
+<p>运用在Internet中的IP地址, 可以随意访问Internet</p>
+</blockquote>
+<p>私有地址:</p>
+<blockquote>
+<p>运用在局域网的IP地址, 只能访问内部网络, 需要通过代理服务器才能访问Internet</p>
+</blockquote>
+<h2 id="A类地址"><a href="#A类地址" class="headerlink" title="A类地址"></a>A类地址</h2><blockquote>
+<p>网络位: 8b<br>主机位: 24b<br>地址范围: <code>1.0.0.0</code>——<code>126.255.255.255</code><br>Mask掩码: <code>255.0.0.0</code><br>保留地址: <code>0.0.0.0</code>——<code>0.255.255.255</code><br>本地链路地址: <code>127.0.0.0</code>——<code>127.255.255.255</code><br>私有地址: <code>10.0.0.0</code>——<code>10.255.255.255</code></p>
+</blockquote>
+<h2 id="B类地址"><a href="#B类地址" class="headerlink" title="B类地址"></a>B类地址</h2><blockquote>
+<p>网络位: 16b<br>主机位: 16b<br>地址范围: <code>128.0.0.0</code>——<code>191.255.255.255</code><br>Mask掩码: <code>255.255.0.0</code><br>私有地址: <code>172.16.0.0</code>——<code>172.31.255.255</code></p>
+</blockquote>
+<h2 id="C类地址"><a href="#C类地址" class="headerlink" title="C类地址"></a>C类地址</h2><blockquote>
+<p>网络位: 24b<br>主机位: 8b<br>地址范围: <code>192.0.0.0</code>——<code>223.255.255.255</code><br>Mask掩码: <code>255.255.255.0</code><br>私有地址: <code>192.168.0.0</code>——<code>192.168.255.255</code></p>
+</blockquote>
+<h2 id="D类地址-组播地址"><a href="#D类地址-组播地址" class="headerlink" title="D类地址(组播地址)"></a>D类地址(组播地址)</h2><blockquote>
+<p>地址范围: <code>224.0.0.0</code>——<code>239.255.255.255</code></p>
+</blockquote>
+<h2 id="E类地址-科研地址"><a href="#E类地址-科研地址" class="headerlink" title="E类地址(科研地址)"></a>E类地址(科研地址)</h2><blockquote>
+<p>地址范围: <code>240.0.0.0</code>——<code>255.255.255.255</code></p>
+</blockquote>
+<h1 id="IP网络环境"><a href="#IP网络环境" class="headerlink" title="IP网络环境"></a>IP网络环境</h1><p>单播环境    Source  IP  Destination IP单播通信<br>组播环境    Source  IP  Destination Group<br>广播环境    Source  IP  Destination 网段内的所有终端</p>
+<p><strong>有类IP地址已经于2010年全部被分配完了</strong></p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>自己总结了一下, 量有点多, 开始掉发, 摸摸头皮不说话</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

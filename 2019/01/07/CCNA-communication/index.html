@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>#CCNA# 主机到主机的通信过程与网络模型 | Veda</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CCNA,网络,">
+  
+
+  <meta name="description" content="概要  主机到主机的通信过程有两种模型   旧模型  专有产品 由一个厂商控制应用程序和嵌入的软件    基于标准的模型  多厂商软件 分层方法   在早期网络缺乏统一的标准中, 不同部门开发的协议栈不能相互兼容, 不同厂商生产的网络设备不能相互通信, 随着时间的推移, 自立门户的发展模式严重阻碍了网络推广 旧有标准: 厂商自己的私有通信标准，不同互通公有标准: 所有厂商必须遵守的通信标准，厂商互">
+<meta name="keywords" content="CCNA,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#CCNA# 主机到主机的通信过程与网络模型">
+<meta property="og:url" content="https://d-veda.top/2019/01/07/CCNA-communication/index.html">
+<meta property="og:site_name" content="Veda">
+<meta property="og:description" content="概要  主机到主机的通信过程有两种模型   旧模型  专有产品 由一个厂商控制应用程序和嵌入的软件    基于标准的模型  多厂商软件 分层方法   在早期网络缺乏统一的标准中, 不同部门开发的协议栈不能相互兼容, 不同厂商生产的网络设备不能相互通信, 随着时间的推移, 自立门户的发展模式严重阻碍了网络推广 旧有标准: 厂商自己的私有通信标准，不同互通公有标准: 所有厂商必须遵守的通信标准，厂商互">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://d-veda.top/images/zhujidaozhuji/tongxin.jpg">
+<meta property="og:image" content="https://d-veda.top/images/zhujidaozhuji/OSI.png">
+<meta property="og:image" content="https://d-veda.top/images/zhujidaozhuji/fengzhuang.png">
+<meta property="og:image" content="https://d-veda.top/images/zhujidaozhuji/jiefeng.jpg">
+<meta property="og:image" content="https://d-veda.top/images/zhujidaozhuji/PDU.png">
+<meta property="og:image" content="https://d-veda.top/images/zhujidaozhuji/tcpip.jpg">
+<meta property="og:image" content="https://d-veda.top/images/zhujidaozhuji/duibi.png">
+<meta property="og:updated_time" content="2019-01-23T03:15:31.434Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#CCNA# 主机到主机的通信过程与网络模型">
+<meta name="twitter:description" content="概要  主机到主机的通信过程有两种模型   旧模型  专有产品 由一个厂商控制应用程序和嵌入的软件    基于标准的模型  多厂商软件 分层方法   在早期网络缺乏统一的标准中, 不同部门开发的协议栈不能相互兼容, 不同厂商生产的网络设备不能相互通信, 随着时间的推移, 自立门户的发展模式严重阻碍了网络推广 旧有标准: 厂商自己的私有通信标准，不同互通公有标准: 所有厂商必须遵守的通信标准，厂商互">
+<meta name="twitter:image" content="https://d-veda.top/images/zhujidaozhuji/tongxin.jpg">
+
+  
+
+  
+    <link rel="icon" href="/icon/celestial.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?49a3aad2ec55e4a060527628a5f4e7a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">🌀</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">🌀</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概要"><span class="toc-text">概要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OSI模型-Open-System-Interconnetion"><span class="toc-text">OSI模型(Open System Interconnetion)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#各层详解"><span class="toc-text">各层详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#应用层"><span class="toc-text">应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表示层"><span class="toc-text">表示层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#会话层"><span class="toc-text">会话层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传输层"><span class="toc-text">传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络层"><span class="toc-text">网络层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层"><span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#物理层"><span class="toc-text">物理层</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据通信过程"><span class="toc-text">数据通信过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对等通信-PDU"><span class="toc-text">对等通信(PDU)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP协议栈"><span class="toc-text">TCP/IP协议栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP协议栈与OSI模型"><span class="toc-text">TCP/IP协议栈与OSI模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CCNA-communication" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">#CCNA# 主机到主机的通信过程与网络模型</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.01.07</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>D-Veda</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/计算机/">计算机</a> / <a class="article-category-link" href="/categories/计算机/网络/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p><img src="/images/zhujidaozhuji/tongxin.jpg" alt="通信模型"></p>
+<ul>
+<li>主机到主机的通信过程有两种模型</li>
+</ul>
+<blockquote>
+<p>旧模型</p>
+<ul>
+<li>专有产品</li>
+<li>由一个厂商控制应用程序和嵌入的软件</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>基于标准的模型</p>
+<ul>
+<li>多厂商软件</li>
+<li>分层方法</li>
+</ul>
+</blockquote>
+<p>在早期网络缺乏统一的标准中, 不同部门开发的协议栈不能相互兼容, 不同厂商生产的网络设备不能相互通信, 随着时间的推移, 自立门户的发展模式严重阻碍了网络推广</p>
+<p>旧有标准: 厂商自己的私有通信标准，不同互通<br>公有标准: 所有厂商必须遵守的通信标准，厂商互通</p>
+<ul>
+<li>由于终端通信需要遵循一套通信标准, OSI模型就是其中的一种</li>
+</ul>
+<p><a href="https://www.baidu.com/s?wd=OSI模型" target="_blank" rel="noopener">OSI模型</a> –&gt; 美国标准<br><a href="https://www.baidu.com/s?wd=TCP/IP协议栈" target="_blank" rel="noopener">TCP/IP协议栈</a> –&gt; 欧洲标准</p>
+<ul>
+<li>分层网络模型的优点</li>
+</ul>
+<ol>
+<li>定义通用的术语来描述网络的功能, 这些功能工作于不同行业并且允许更好的理解与合作</li>
+<li>将处理过程分段, 允许发展执行某一功能的技术独立于执行其他功能的技术</li>
+<li>促进竞争与发展, 可以同时使用不同厂商的产品</li>
+<li>提供了描述网络功能和能力的通用语言</li>
+<li>有助于协议设计, 对于在特定层工作的协议而言, 它们的工作方式及其与下层之间的接口都已经确定</li>
+</ol>
+<ul>
+<li>正是OSI模型的存在, 当今网络不同机构开发的网络协议, 不同厂商生产的网络设备可以很好的融入在网络里面</li>
+</ul>
+<h1 id="OSI模型-Open-System-Interconnetion"><a href="#OSI模型-Open-System-Interconnetion" class="headerlink" title="OSI模型(Open System Interconnetion)"></a>OSI模型(Open System Interconnetion)</h1><p><img src="/images/zhujidaozhuji/OSI.png" alt="OSI模型"></p>
+<blockquote>
+<p>OSI模型是全球范围内的网络通信标准<br>OSI模型定义了网络通信过程中所涉及到的所有细节<br>OSI模型是作为网络协议设计的指导原则<br>OSI模型是分析和评判各种网络协议的依据</p>
+</blockquote>
+<ul>
+<li><p>OSI模型包括(<code>应用层</code>/<code>表示层</code>/<code>会话层</code>/<code>传输层</code>/<code>网络层</code>/<code>数据链路层</code>/<code>物理层</code>)</p>
+</li>
+<li><p>每一层提供3个特性</p>
+<blockquote>
+<p>服务: 本层能为上层提供的服务<br>接口: 上层如何调用本层<br>协议: 本层能实现的功能</p>
+</blockquote>
+</li>
+<li><p>高三层(产生数据)</p>
+<blockquote>
+<p>定义应用程序生产数据的细节, 主要研究数据是如何产生的<br>包括: <code>应用层</code>/<code>表示层</code>/<code>会话层</code></p>
+</blockquote>
+</li>
+<li><p>低四层(传输数据)</p>
+<blockquote>
+<p>定义应用程序数据如何在各种设备中间传输<br>包括: <code>传输层</code>/<code>网络层</code>/<code>数据链路层</code>/<code>物理层</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="各层详解"><a href="#各层详解" class="headerlink" title="各层详解"></a>各层详解</h2><h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><blockquote>
+<p>为真实程序提供调用内核接口</p>
+</blockquote>
+<h3 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h3><blockquote>
+<p>提供对不同数据格式的转换, 加密, 解密功能</p>
+</blockquote>
+<h3 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h3><blockquote>
+<p>提供对应用程序会话的建立, 维护, 终止, 区分应用功能</p>
+</blockquote>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>传输层考虑如何在端端通信过程中确保数据传输的可靠性<br>传输层处理的数据成为<code>数据段</code>(PDU)</p>
+<ul>
+<li><p>传输层主要作用</p>
+<blockquote>
+<p>更好的将端端数据顺利传输, 保证端到端数据传递的完整性, 端内实现<br>在源和目标主机的应用程序之间跟踪独立的通信<br>标识不同的应用服务程序(端口号)<br>在终端用户之间执行流量控制<br>差错恢复</p>
+</blockquote>
+</li>
+<li><p>传输层两大协议</p>
+<blockquote>
+<p><code>TCP</code>: 提供可靠的传输服务<br><code>UDP</code>: 提供尽力而为的传输服务</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>网络层考虑如何在端到端路径中选择出一条最优路径<br>网络层处理的数据成为<code>数据包</code>(PDU)<br>网络层交换数据包依据IP地址来实现的</p>
+<ul>
+<li><p>网络层的作用</p>
+<blockquote>
+<p>提供端端间路径的抉择/具备一定的传输能力<br>网络层是OSI模型中最为核心的协议<br>所有的数据包都是封装成IP数据包格式在网络中传输<br>网络设备转发数据包是依据IP寻址的<br>网络层提供一定的传输能力, 不保证数据传输过程中的可靠性</p>
+</blockquote>
+</li>
+<li><p>网络层协议</p>
+<blockquote>
+<p><code>IP协议</code>/<code>ICMP协议</code>/<code>ARP协议</code>/<code>RIP协议</code>/<code>EIGRP协议</code>/<code>OSPF协议</code>/<code>ISIS协议</code></p>
+</blockquote>
+</li>
+<li><p>网络层设备</p>
+<blockquote>
+<p>路由器<br>三层交换机</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><p>数据链路层考虑如何让上层协议成功的调用物理层设备传输数据<br>数据链路层处理的数据成为<code>数据帧</code>(PDU)<br>数据链路层交换数据帧依据<code>MAC地址</code>来实现的</p>
+<ul>
+<li><p>数据链路层的作用</p>
+<blockquote>
+<p>提供对物理层的调用功能, 定义如何在物理介质上传递数据<br>允许上层使用封装成帧之类的各种协议访问物理设备<br>对工作在物理介质上的数据帧进行访问控制, 错误检查, 以及从物理介质上收发数据帧</p>
+</blockquote>
+</li>
+<li><p>数据链路层协议</p>
+<blockquote>
+<p>针对双绞线链路: <code>以太网协议</code>/<code>802.3协议</code><br>针对串口链路: <code>HDLC协议</code>/<code>PPP协议</code>/<code>Frame-relay协议</code></p>
+</blockquote>
+</li>
+<li><p>数据链路层设备</p>
+<blockquote>
+<p>网桥<br>交换机</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><p>物理层考虑如何在连接各种计算机的传输媒介上传递数据<br>物理层处理的数据成为<code>bit流</code>(PDU)</p>
+<ul>
+<li><p>作用</p>
+<blockquote>
+<p>提供网络通信物理介质, 定义物理介质规范运作协定<br>物理层协议尽可能的屏蔽掉物理媒介的差异<br>使物理层上面的高层协议感觉不到这些差异, 专心完成本层的功能, 而不必考虑物理媒介的差异</p>
+</blockquote>
+</li>
+<li><p>物理层主要特性</p>
+<blockquote>
+<p>机械特性: 指明接口所用接线器形状, 尺寸, 引脚数目和排序, 固定和锁定装置<br>电气特性: 指明在接口电缆的各条线上出现的电压的范围<br>功能特性: 指明对于不同功能的各种可能时间的出现顺序<br>过程特性: 指明对于不同过程的各种可能时间的出现顺序</p>
+</blockquote>
+</li>
+<li><p>物理层设备</p>
+<blockquote>
+<p>集线器<br>解码器<br>线缆</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="数据通信过程"><a href="#数据通信过程" class="headerlink" title="数据通信过程"></a>数据通信过程</h1><p>数据要想在网络上正常传输, 必须将数据封装成数据包</p>
+<ul>
+<li>源端设备执行<code>数据封装</code>的过程<br><img src="/images/zhujidaozhuji/fengzhuang.png" alt="数据封装"></li>
+<li>目标设备执行<code>数据解封</code>的过程<br><img src="/images/zhujidaozhuji/jiefeng.jpg" alt="数据解封"></li>
+</ul>
+<h2 id="对等通信-PDU"><a href="#对等通信-PDU" class="headerlink" title="对等通信(PDU)"></a>对等通信(PDU)</h2><p><img src="/images/zhujidaozhuji/PDU.png" alt="对等通信"></p>
+<h1 id="TCP-IP协议栈"><a href="#TCP-IP协议栈" class="headerlink" title="TCP/IP协议栈"></a>TCP/IP协议栈</h1><p><img src="/images/zhujidaozhuji/tcpip.jpg" alt="TCP/IP协议栈"></p>
+<h1 id="TCP-IP协议栈与OSI模型"><a href="#TCP-IP协议栈与OSI模型" class="headerlink" title="TCP/IP协议栈与OSI模型"></a>TCP/IP协议栈与OSI模型</h1><p>OSI是理论模型(科学研究)<br>TCP/IP是具体应用(产品应用)</p>
+<p><img src="/images/zhujidaozhuji/duibi.png" alt="TCP/IP协议栈与OSI模型"></p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>由于OSI模型对设备的要求过高, 而TCP/IP协议栈对设备的要求不高, 所以现在普及的是TCP/IP协议栈</li>
+<li>但是TCP/IP协议栈并不像OSI模型那样全面, 也就导致了网络漏洞的产生</li>
+<li>学习并了解分层结构的网络模型, 是以后网络学习的基础</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tags/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment"></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "zWdpKbc8P8xuePTWEecVNddd-gzGzoHsz",
+            appKey: "6iiP9lrClMSLgSnJgUSPNS17",
+            avatar:'mp',
+            placeholder: "Hi!",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
