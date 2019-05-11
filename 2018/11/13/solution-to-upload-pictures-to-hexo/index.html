@@ -12,11 +12,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Hexo,Blog,解决方案,">
+    <meta name="keywords" content="Hexo,解决方案,Blog,">
   
 
   <meta name="description" content="根据CSDN上的相关文章，修改post_asset_folder为true后hexo博客并不能以![]()的形式正常调用MD文件中同名文件夹的本地图片修改_config.yml文件中Permalink的路径也没有效果 具体现象 图片所在的相对路径与上传后的路径不一致 部署后的检查图片所在路径新增了年月日  解决方案用图床上传图片我用的是MarkdownPad 2,只是插入图片需要购买专业版 在此分">
-<meta name="keywords" content="Hexo,Blog,解决方案">
+<meta name="keywords" content="Hexo,解决方案,Blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于Hexo上传本地图片问题">
 <meta property="og:url" content="https://d-veda.top/2018/11/13/solution-to-upload-pictures-to-hexo/index.html">
@@ -351,31 +351,6 @@
     
 
     
-
-<!-- Gitalk评论插件通用代码 -->
-<div id="gitalk-container"></div>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-const gitalk = new Gitalk({
-  clientID: 'd9f460d0f4203c667a5a',
-  clientSecret: '1c043b6c0908f240adf11bab58f358395d8f7d93',
-  repo: 'https://d-veda.github.io',
-  owner: 'D-Veda',
-  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
-  // 50个字符串则会报错.
-  // id: location.pathname.split('/').pop().substring(0, 49),
-  id: location.pathname,
-  admin: ['D-Veda'],
-  // facebook-like distraction free mode
-  distractionFreeMode: false
-})
-gitalk.render('gitalk-container')
-</script>
-<!-- Gitalk代码结束 -->
-
-
 
   </div>
 
