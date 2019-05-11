@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="forsigner,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript">
+    <meta name="keywords" content="D-Veda, Veda">
   
 
   <meta property="og:type" content="website">
@@ -26,7 +26,7 @@
   
 
   
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/icon/celestial.png">
   
 
   <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
@@ -121,7 +121,7 @@ ga('send', 'pageview');
         </li>
       
         <li class="item-toolbox">
-          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+          <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
             分类
           </a>
         </li>
@@ -163,14 +163,14 @@ ga('send', 'pageview');
 
   <div class="box-blog-info">
     <a class="avatar" href="/">
-      <img src="/images/avatar.jpg" alt>
+      <img src="/icon/person.png" alt>
     </a>
     <div class="info">
       <h3 class="name" style="font-family: calligraffittiregular">
-        Forsigner
+        D-Veda
       </h3>
       <div class="slogan">
-        Find the bug of the world
+        Computing everything &amp; Decoding everything
       </div>
     </div>
   </div>
@@ -296,7 +296,7 @@ ga('send', 'pageview');
           </li>
         
           <li class="item-toolbox">
-            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            <a class="CIRCLE" href="/categories/" rel="noopener noreferrer" target="_self">
               分类
             </a>
           </li>
@@ -371,5 +371,20 @@ ga('send', 'pageview');
   }
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
