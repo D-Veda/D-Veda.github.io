@@ -243,13 +243,13 @@ ga('send', 'pageview');
 </ul>
 <h3 id="路由表实例"><a href="#路由表实例" class="headerlink" title="路由表实例"></a>路由表实例</h3><p><img src="/images/luyoujichu/luyoubiao.png" alt="路由表实例"></p>
 <h3 id="路由表中路由条目类型"><a href="#路由表中路由条目类型" class="headerlink" title="路由表中路由条目类型"></a>路由表中路由条目类型</h3><ul>
-<li>直连路由: 本地直连接口–C</li>
-<li>静态路由: 通过手动配置的非本地网段–S</li>
-<li>RIP路由: 通过动态RIP学习到的非本地网段–R</li>
-<li>EIGRP路由: 通过动态EIGRP学习到的非本地网段–D</li>
-<li>BGP路由: 通过动态BGP学习到的非本地网段–B</li>
-<li>OSPF路由: 通过动态OSPF学习到的非本地网段–O</li>
-<li>ISIS路由: 通过动态ISIS学习到的非本地网段–I</li>
+<li>直连路由: 本地直连接口—C</li>
+<li>静态路由: 通过手动配置的非本地网段—S</li>
+<li>RIP路由: 通过动态RIP学习到的非本地网段—R</li>
+<li>EIGRP路由: 通过动态EIGRP学习到的非本地网段—D</li>
+<li>BGP路由: 通过动态BGP学习到的非本地网段—B</li>
+<li>OSPF路由: 通过动态OSPF学习到的非本地网段—O</li>
+<li>ISIS路由: 通过动态ISIS学习到的非本地网段—I</li>
 </ul>
 <h2 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h2><ul>
 <li>作用: 负责学习路由, 生成路由表, 依据路由表转发数据包</li>
@@ -482,5 +482,20 @@ ga('send', 'pageview');
   }
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

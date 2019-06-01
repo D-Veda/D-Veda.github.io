@@ -221,9 +221,9 @@ ga('send', 'pageview');
 <p>IP地址可输入的最大范围</p>
 <ul>
 <li>二进制:</li>
-<li><code>00000000.00000000.00000000.00000000</code>——<code>11111111.11111111.11111111.11111111</code></li>
+<li><code>00000000.00000000.00000000.00000000</code>———<code>11111111.11111111.11111111.11111111</code></li>
 <li>十进制:</li>
-<li><code>0.0.0.0</code>——<code>255.255.255.255</code></li>
+<li><code>0.0.0.0</code>———<code>255.255.255.255</code></li>
 </ul>
 </blockquote>
 <h1 id="IP地址组成方式"><a href="#IP地址组成方式" class="headerlink" title="IP地址组成方式"></a>IP地址组成方式</h1><ul>
@@ -265,11 +265,9 @@ ga('send', 'pageview');
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><blockquote>
 <p>IP地址: <code>192.168.1.1/24</code> (其中<code>/24</code>代表网络位有24位, 用<code>/</code>分隔IP地址和网络位, 只是这样标记方便, 在计算机看到的网络位都是以Mask掩码的形式表示出来的)<br>Mask掩码: <code>255.255.255.0</code></p>
 <p>将Mask掩码从十进制转化为二进制后得到<code>11111111.11111111.11111111.00000000</code><br>从左往右数(从前往后数)连续出现24个1, 所以网络位有24位, 主机位有8位<br>将IP地址<code>192.168.1.1</code>从十进制转化为二进制<code>11000000.10101000.00000001.00000001</code><br>由于网络位有24位所以将<code>11000000.10101000.00000001.00000001</code>中的前24位保留, 后8位全部改为0<br>得到<code>11000000.10101000.00000001.00000000</code>再转化为十进制的<code>192.168.1.0</code>就是IP地址<code>192.168.1.1</code>的网段</p>
-<p>将IP地址的二进制形式中的主机位都改成1得到<code>11000000.10101000.00000001.11111111</code><br>再将其转化为十进制形式得到<code>192.168.1.255</code>就是IP地址<code>192.168.1.1</code>的广播地址<br>所以网段<code>192.168.1.0</code>下成员的范围就是<code>192.168.1.1</code>——<code>192.168.1.254</code></p>
-</blockquote>
-<blockquote>
+<p>将IP地址的二进制形式中的主机位都改成1得到<code>11000000.10101000.00000001.11111111</code><br>再将其转化为十进制形式得到<code>192.168.1.255</code>就是IP地址<code>192.168.1.1</code>的广播地址<br>所以网段<code>192.168.1.0</code>下成员的范围就是<code>192.168.1.1</code>———<code>192.168.1.254</code></p>
 <p>IP地址: <code>123.89.36.88/13</code><br>Mask掩码: <code>255.248.0.0</code></p>
-<p>IP地址(二进制): <code>01111011.01011001.00100100.01011000</code><br>Mask掩码(二进制): <code>11111111.11111000.00000000.00000000</code><br>网段(二进制): <code>01111011.01011000.00000000.00000000</code><br>广播地址(二进制): <code>01111011.01011111.11111111.11111111</code><br>网段(十进制): <code>123.88.0.0</code><br>广播地址: <code>123.95.255.255</code><br>成员的范围: <code>123.88.0.1</code>——<code>123.95.255.254</code></p>
+<p>IP地址(二进制): <code>01111011.01011001.00100100.01011000</code><br>Mask掩码(二进制): <code>11111111.11111000.00000000.00000000</code><br>网段(二进制): <code>01111011.01011000.00000000.00000000</code><br>广播地址(二进制): <code>01111011.01011111.11111111.11111111</code><br>网段(十进制): <code>123.88.0.0</code><br>广播地址: <code>123.95.255.255</code><br>成员的范围: <code>123.88.0.1</code>———<code>123.95.255.254</code></p>
 </blockquote>
 <h4 id="十进制转二进制加速公式"><a href="#十进制转二进制加速公式" class="headerlink" title="十进制转二进制加速公式"></a>十进制转二进制加速公式</h4><p><img src="/images/2jinzhizhuanhuan.png" alt="十进制转二进制表"><br>根据上面的公式表, 十进制数在255以内的自然数可以用对应二进制位数进行叠加<br>将二进制位对应的十进制数相加至与要转换的十进制数相等<br>所得到的就是十进制数对应的二进制数</p>
 <h1 id="IP地址的分类-有类IP地址"><a href="#IP地址的分类-有类IP地址" class="headerlink" title="IP地址的分类(有类IP地址)"></a>IP地址的分类(有类IP地址)</h1><p>保留地址:</p>
@@ -285,19 +283,19 @@ ga('send', 'pageview');
 <p>运用在局域网的IP地址, 只能访问内部网络, 需要通过代理服务器才能访问Internet</p>
 </blockquote>
 <h2 id="A类地址"><a href="#A类地址" class="headerlink" title="A类地址"></a>A类地址</h2><blockquote>
-<p>网络位: 8b<br>主机位: 24b<br>地址范围: <code>1.0.0.0</code>——<code>126.255.255.255</code><br>Mask掩码: <code>255.0.0.0</code><br>保留地址: <code>0.0.0.0</code>——<code>0.255.255.255</code><br>本地链路地址: <code>127.0.0.0</code>——<code>127.255.255.255</code><br>私有地址: <code>10.0.0.0</code>——<code>10.255.255.255</code></p>
+<p>网络位: 8b<br>主机位: 24b<br>地址范围: <code>1.0.0.0</code>———<code>126.255.255.255</code><br>Mask掩码: <code>255.0.0.0</code><br>保留地址: <code>0.0.0.0</code>———<code>0.255.255.255</code><br>本地链路地址: <code>127.0.0.0</code>———<code>127.255.255.255</code><br>私有地址: <code>10.0.0.0</code>———<code>10.255.255.255</code></p>
 </blockquote>
 <h2 id="B类地址"><a href="#B类地址" class="headerlink" title="B类地址"></a>B类地址</h2><blockquote>
-<p>网络位: 16b<br>主机位: 16b<br>地址范围: <code>128.0.0.0</code>——<code>191.255.255.255</code><br>Mask掩码: <code>255.255.0.0</code><br>私有地址: <code>172.16.0.0</code>——<code>172.31.255.255</code></p>
+<p>网络位: 16b<br>主机位: 16b<br>地址范围: <code>128.0.0.0</code>———<code>191.255.255.255</code><br>Mask掩码: <code>255.255.0.0</code><br>私有地址: <code>172.16.0.0</code>———<code>172.31.255.255</code></p>
 </blockquote>
 <h2 id="C类地址"><a href="#C类地址" class="headerlink" title="C类地址"></a>C类地址</h2><blockquote>
-<p>网络位: 24b<br>主机位: 8b<br>地址范围: <code>192.0.0.0</code>——<code>223.255.255.255</code><br>Mask掩码: <code>255.255.255.0</code><br>私有地址: <code>192.168.0.0</code>——<code>192.168.255.255</code></p>
+<p>网络位: 24b<br>主机位: 8b<br>地址范围: <code>192.0.0.0</code>———<code>223.255.255.255</code><br>Mask掩码: <code>255.255.255.0</code><br>私有地址: <code>192.168.0.0</code>———<code>192.168.255.255</code></p>
 </blockquote>
 <h2 id="D类地址-组播地址"><a href="#D类地址-组播地址" class="headerlink" title="D类地址(组播地址)"></a>D类地址(组播地址)</h2><blockquote>
-<p>地址范围: <code>224.0.0.0</code>——<code>239.255.255.255</code></p>
+<p>地址范围: <code>224.0.0.0</code>———<code>239.255.255.255</code></p>
 </blockquote>
 <h2 id="E类地址-科研地址"><a href="#E类地址-科研地址" class="headerlink" title="E类地址(科研地址)"></a>E类地址(科研地址)</h2><blockquote>
-<p>地址范围: <code>240.0.0.0</code>——<code>255.255.255.255</code></p>
+<p>地址范围: <code>240.0.0.0</code>———<code>255.255.255.255</code></p>
 </blockquote>
 <h1 id="IP网络环境"><a href="#IP网络环境" class="headerlink" title="IP网络环境"></a>IP网络环境</h1><p>单播环境    Source  IP  Destination IP单播通信<br>组播环境    Source  IP  Destination Group<br>广播环境    Source  IP  Destination 网段内的所有终端</p>
 <p><strong>有类IP地址已经于2010年全部被分配完了</strong></p>
@@ -472,5 +470,20 @@ ga('send', 'pageview');
   }
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
